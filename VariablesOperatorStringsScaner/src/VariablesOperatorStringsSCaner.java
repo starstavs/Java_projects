@@ -9,6 +9,7 @@ public class VariablesOperatorStringsSCaner {
         Scanner scanWork = new Scanner(System.in);
         PersonalInformation persInfo = new PersonalInformation();
         Calculator calc = new Calculator();
+        TempConverter tempConv = new TempConverter();
 
         System.out.println("Select an option");
         System.out.println("Write 1, if you want to meet.");
@@ -40,11 +41,16 @@ public class VariablesOperatorStringsSCaner {
                     System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
                     System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
                     System.out.println(num1 + " * " + num2 + " = " + (num1 * num2));
-                    System.out.println(num1 + " / " + num2 + " = " + ((double)(num1 / num2)));
+                    System.out.println(num1 + " / " + num2 + " = " + ((double) (num1 / num2)));
+                    System.out.println("--------------------------");
+
                     break;
                 }
                 case 3: {
-                    System.out.println("Hallo3");
+                    double tempFarengeit = tempConv.getTemperature();
+                    System.out.println("Temperature in Fahrenheit: " + tempFarengeit);
+                    System.out.println("--------------------------");
+
                     break;
                 }
                 case 4: {
