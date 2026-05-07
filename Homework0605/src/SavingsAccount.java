@@ -6,7 +6,7 @@ public class SavingsAccount {
     public double monthlyInterest;
 
     public final double calculateMonthlyInterest(double savingsBalance) {
-        monthlyInterest = (savingsBalance * annualInterestRate / 100) / 12;
+        monthlyInterest = (double)Math.round(((savingsBalance * annualInterestRate / 100) / 12)*100)/100;
 
         return (monthlyInterest);
     }
@@ -14,6 +14,8 @@ public class SavingsAccount {
     public static void modifyInterestRate(double newInterestRate) {
         annualInterestRate = newInterestRate;
     }
+
+
 
 
     @Override

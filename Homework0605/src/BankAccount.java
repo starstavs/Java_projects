@@ -71,7 +71,7 @@ public class BankAccount {
                 }
                 case 3 -> {
                     saver[selectedUser].monthlyInterest = saver[selectedUser].calculateMonthlyInterest(saver[selectedUser].savingsBalance);
-                    saver[selectedUser].savingsBalance += (saver[selectedUser].monthlyInterest * 12);
+                    saver[selectedUser].savingsBalance += (double) Math.round(((saver[selectedUser].monthlyInterest * 12)) * 100) /100;
                     System.out.println("User " + saver[selectedUser].userName + " have monthly interest " + saver[selectedUser].monthlyInterest + "$");
                     System.out.println("New balance is " + saver[selectedUser].savingsBalance + "$");
                     break;
