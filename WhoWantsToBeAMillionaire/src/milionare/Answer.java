@@ -6,8 +6,8 @@ public class Answer extends Questions {
     private String[] answer = new String[4];
     private int correctAnswer;
 
-    Answer(int questionLevel, int questionNumber, int correctAnswer, String answer1, String answer2, String answer3, String answer4) {
-        super(questionLevel, questionNumber);
+    Answer(int questionLevel, int questionNumber, String questionLevelName, int correctAnswer, String answer1, String answer2, String answer3, String answer4) {
+        super(questionLevel, questionNumber,questionLevelName);
         answer[0] = answer1;
         answer[1] = answer2;
         answer[2] = answer3;
