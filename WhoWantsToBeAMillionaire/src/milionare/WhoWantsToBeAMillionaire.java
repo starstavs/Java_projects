@@ -3,17 +3,24 @@ package milionare;
 import java.io.File;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
+import java.util.Random;
 
 
 public class WhoWantsToBeAMillionaire {
     static Scanner scan = new Scanner(System.in);
     static String playerName;
-    static Questions[] questions = new Questions[60];
+    static Question[] question = new Question[60];
     static Answer[] answers = new Answer[240];
     static int questionIndex = 0, answerIndex = 0;
     static boolean action;
     static int levelGame = 0;
-    static Levels level;
+    //static Levels level;
+    static int[] questionNumberInLevel = new int[10];
+    static int questionInLevel = 0;
+    static int selectedIndexQuestion;
+    static Question selectedQuestion;
+    static Random random = new Random();
+
 
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
 
@@ -23,14 +30,39 @@ public class WhoWantsToBeAMillionaire {
         System.out.println("Hallo " + playerName + ". I will explain the rules of the game to you.");
         gameRules();
         action = scan.nextLine().equalsIgnoreCase("Y");
-        System.out.println("Set question begin");
         setQuestions();
-        System.out.println("Questions are end");
         //displayQuestions();
         while (action) {
             levelGame++;
-            level = zLevels.getLevelNameByNumber(levelGame);
+            System.out.println("\n");
+            textOutput("Question from the section \"" + Levels.getLevelDescriptionByNumber(levelGame) + "\"\n");
+            textOutput("The cost of the question is " + Levels.getLevelBonusByNumber(levelGame) + " lei.");
+            System.out.println("\n");
+
+            selectedQuestion = getQuestionByLevel(levelGame);
+            textOutput(selectedQuestion.getQuestionName());
+
+
+
+            action = false;
+
         }
+    }
+
+    private static Question getQuestionByLevel(int levelGame) {
+
+        for (int i = 0; i < question.length; i++) {
+            if (question[i].getQuestionLevel() == levelGame) {
+                questionNumberInLevel[questionInLevel++] = question[i].getQuestionNumber();
+            }
+        }
+        int temp = random.nextInt(questionInLevel);
+        selectedIndexQuestion = questionNumberInLevel[temp] - 1;
+
+        //System.out.println(question[selectedQuestion].getQuestionName());
+
+        return question[selectedIndexQuestion];
+
     }
 
 
@@ -38,7 +70,7 @@ public class WhoWantsToBeAMillionaire {
     private static void displayQuestions() {
         for (int i = 0; i < questionIndex; i++) {
             for (int j = 0; j < answerIndex; j++) {
-                System.out.println(questions[i]);
+                System.out.println(question[i]);
                 System.out.println(answers[j]);
             }
         }
@@ -75,7 +107,7 @@ public class WhoWantsToBeAMillionaire {
     private static void setQuestions() throws FileNotFoundException {
 
         File file = new File("questionTable");
-        System.out.println(new File(".").getAbsolutePath());
+        // System.out.println(new File(".").getAbsolutePath());
         Scanner scanFile = new Scanner(file);
         String fileLine;
         int levelNumber;
@@ -96,7 +128,7 @@ public class WhoWantsToBeAMillionaire {
             answer3 = partLine[5];
             answer4 = partLine[6];
             correctAnswer = Integer.parseInt(partLine[7]);
-            questions[questionIndex++] = new Question(levelNumber, questionNumber, questionBody);
+            question[questionIndex++] = new Question(levelNumber, questionNumber, questionBody);
             answers[answerIndex++] = new Answer(levelNumber, questionNumber, answer1, answer2, answer3, answer4, correctAnswer);
 
         }

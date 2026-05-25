@@ -10,6 +10,14 @@ public abstract class Questions {
 
     }
 
+    public int getQuestionLevel() {
+        return questionLevel;
+    }
+
+    public int getQuestionNumber(){
+        return questionNumber;
+    }
+
     @Override
     public String toString(){
 

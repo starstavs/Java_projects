@@ -38,11 +38,30 @@ public enum Levels {
     public int getLevelBonus() {
         return levelBonus;
     }
+    public static int getLevelBonusByNumber(int levelNumber){
+        for (Levels levels : Levels.values()) {
+            if (levels.getLevelNumber() == levelNumber) {
+                return levels.getLevelBonus();
+            }
+
+        }
+        return 0;
+    }
 
     public static Levels getLevelNameByNumber(int levelNumber) {
         for (Levels levels : Levels.values()) {
             if (levels.getLevelNumber() == levelNumber) {
                 return levels;
+            }
+
+        }
+        return null;
+    }
+
+    public static String getLevelDescriptionByNumber(int levelNumber){
+        for (Levels levels : Levels.values()) {
+            if (levels.getLevelNumber() == levelNumber) {
+                return levels.getLevelDescription();
             }
 
         }

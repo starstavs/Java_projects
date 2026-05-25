@@ -11,8 +11,12 @@ public class Question extends Questions {
         this.questionName = questionName;
     }
 
-@Override
-    public String toString(){
+    public String getQuestionName() {
+        return questionName;
+    }
+
+    @Override
+    public String toString() {
         return super.toString() + questionName;
-}
+    }
 }
