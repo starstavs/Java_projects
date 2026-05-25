@@ -2,12 +2,17 @@ package milionare;
 
 public abstract class Questions {
     private int questionLevel;
-    private String questionLevelName;
     private int questionNumber;
 
-    Questions(int questionLevel, int questionNumber, String questionLevelName) {
+    Questions(int questionLevel, int questionNumber) {
         this.questionLevel = questionLevel;
         this.questionNumber = questionNumber;
-        this.questionLevelName = questionLevelName;
+
+    }
+
+    @Override
+    public String toString(){
+
+        return "Level " + questionLevel + " question Nr. " + questionNumber;
     }
 }
