@@ -23,11 +23,15 @@ public class WhoWantsToBeAMillionaire {
     static boolean action;                                                      //Game is active
     static int levelGame = 0;                                                   //Selected level
     static String option;                                                       //User's Choice
-    static int[] questionNumberInLevel = new int[10];                           //Number of possible questions in a level
-    static int questionInLevel = 0;                                             //Current number of questions in the level
+    static int[] questionNumberInLevel = new int[300];                           //Number of possible questions in a level
+    static int questionInLevel;                                             //Current number of questions in the level
     static int selectedIndexQuestion;                                           //Selected index of question
     static Question selectedQuestion;                                           //Selected question
     static Random random = new Random();
+    static final int[] guaranteedAmountArray = {1000, 100000, 1000000};
+    static int guaranteedAmount = 0;
+    static int currentAmount = 0;
+    static boolean isCorrect;
 
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -45,34 +49,63 @@ public class WhoWantsToBeAMillionaire {
             displayQuestion();
             displayAnswer();
             displayHelp();
-            option = scan.nextLine();
-            switch (option.toLowerCase()) {
-                case "a" -> checkAnswer(1);
-                case "b" -> checkAnswer(2);
-                case "c" -> checkAnswer(3);
-                case "d" -> checkAnswer(4);
-                case "f" -> fiftyFiftyHelp.getHelp(answers[selectedIndexQuestion]);
-                case "p" -> phoneHelp.getHelp(answers[selectedIndexQuestion]);
-                case "s" -> audienceHelp.getHelp(answers[selectedIndexQuestion]);
-                default -> System.out.println("Invalid input");
-            }
+            while (true) {
+                option = scan.nextLine();
+                switch (option.toLowerCase()) {
+                    case "a" -> isCorrect = checkAnswer(1);
+                    case "b" -> isCorrect = checkAnswer(2);
+                    case "c" -> isCorrect = checkAnswer(3);
+                    case "d" -> isCorrect = checkAnswer(4);
+                    case "f" -> fiftyFiftyHelp.getHelp(answers[selectedIndexQuestion]);
+                    case "p" -> phoneHelp.getHelp(answers[selectedIndexQuestion]);
+                    case "s" -> audienceHelp.getHelp(answers[selectedIndexQuestion]);
+                    default -> {
+                        textOutput("You pressed the wrong button out of nervousness. :)");
+                        textOutput("Come on, let's try one more time.");
+                        continue;
+                    }
 
-            action = false;
+                }
+                break;
+            }
+            if (!isCorrect) {
+                textOutput("Unfortunately, you gave the wrong answer.");
+                textOutput("The correct answer is " + currentAnswer[(int) (answers[selectedIndexQuestion].getCorrectAnswer() - 1)]);
+                textOutput(" You earned " + guaranteedAmount + " lei on this game.");
+                textOutput("Game is over");
+                action = false;
+            }
+            if (levelGame == Levels.getLevelLength() || guaranteedAmount == guaranteedAmountArray[2]) {
+                textOutput("Congratulations, " + playerName + "! You won our game and earned " + guaranteedAmount + " lei.");
+                action = false;
+            }
 
         }
     }
 
-    private static void checkAnswer(int selectedAnswer) {
+    private static boolean checkAnswer(int selectedAnswer) {
         if (selectedAnswer == answers[selectedIndexQuestion].getCorrectAnswer()) {
-            System.out.println("correct");
+            textOutput("Congratulations! That is the correct answer.");
+            currentAmount = Levels.getLevelBonusByNumber(levelGame);
+            textOutput("You earned " + currentAmount + " lei for the correct answer to the question.");
+            for (int sum : guaranteedAmountArray) {
+                if (currentAmount == sum) {
+                    guaranteedAmount = currentAmount;
+                    textOutput("You have reached your guaranteed amount and it is " + guaranteedAmount + " lei.");
+                    break;
+                }
+            }
+            return true;
+
         } else {
             System.out.println("Oblom");
+            return false;
         }
     }
 
     private static void displayQuestion() {
         System.out.println("\n");
-        textOutput("Question from the section \"" + Levels.getLevelDescriptionByNumber(levelGame) + "\"\n");
+        textOutput("Question from the section \"" + Levels.getLevelDescriptionByNumber(levelGame) + "\"");
         textOutput("The cost of the question is " + Levels.getLevelBonusByNumber(levelGame) + " lei.");
         System.out.println("\n");
 
@@ -99,7 +132,7 @@ public class WhoWantsToBeAMillionaire {
     }
 
     private static Question getQuestionByLevel(int levelGame) {
-
+        questionInLevel = 0;
         for (int i = 0; i < question.length; i++) {
             if (question[i].getQuestionLevel() == levelGame) {
                 questionNumberInLevel[questionInLevel++] = question[i].getQuestionNumber();
@@ -136,7 +169,7 @@ public class WhoWantsToBeAMillionaire {
                 "1. \"50/50\" — which eliminates two incorrect answer choices; \n" +
                 "2. \"Phone-a-Friend\" — you may consult a friend for advice, for which you have exactly one minute. \n" +
                 "3. \"Ask the Audience\" — to gauge the opinion of those present; \n" +
-                "The game also features two safety nets: 1,000 lei and 100,000 lei. \n" +
+                "The game also features two guaranteed sums: 1,000 lei and 100,000 lei. \n" +
                 "In the event of an incorrect answer, \n" +
                 "you will receive the amount corresponding to your last reached safety net. \n\n" +
                 "I wish you the best of luck.\n\n" +

@@ -38,6 +38,7 @@ public enum Levels {
     public int getLevelBonus() {
         return levelBonus;
     }
+
     public static int getLevelBonusByNumber(int levelNumber){
         for (Levels levels : Levels.values()) {
             if (levels.getLevelNumber() == levelNumber) {
@@ -46,6 +47,11 @@ public enum Levels {
 
         }
         return 0;
+    }
+
+    public static int getLevelLength(){
+    return Levels.values().length;
+
     }
 
     public static Levels getLevelNameByNumber(int levelNumber) {
