@@ -1,5 +1,9 @@
 package milionare;
 
+import help.AudienceHelp;
+import help.FiftyFiftyHelp;
+import help.PhoneHelp;
+
 import java.io.File;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
@@ -7,22 +11,26 @@ import java.util.Random;
 
 
 public class WhoWantsToBeAMillionaire {
-    static Scanner scan = new Scanner(System.in);
-    static String playerName;
-    static Question[] question = new Question[60];
-    static Answer[] answers = new Answer[240];
-    static int questionIndex = 0, answerIndex = 0;
-    static boolean action;
-    static int levelGame = 0;
-    //static Levels level;
-    static int[] questionNumberInLevel = new int[10];
-    static int questionInLevel = 0;
-    static int selectedIndexQuestion;
-    static Question selectedQuestion;
+    static Scanner scan = new Scanner(System.in);                               //Scanner value
+    static String playerName;                                                   //Player name
+    static Question[] question = new Question[60];                              //Array with questions
+    static Answer[] answers = new Answer[240];                                  //Array with answers
+    static String[] currentAnswer = new String[4];                              //Array with 4 available answer for question
+    static FiftyFiftyHelp fiftyFiftyHelp = new FiftyFiftyHelp(false);    //Help 50/50
+    static AudienceHelp audienceHelp = new AudienceHelp(false);          //Help audience
+    static PhoneHelp phoneHelp = new PhoneHelp(false);                   //Help phone
+    static int questionIndex = 0, answerIndex = 0;                              //Number of questions and answers
+    static boolean action;                                                      //Game is active
+    static int levelGame = 0;                                                   //Selected level
+    static String option;                                                       //User's Choice
+    static int[] questionNumberInLevel = new int[10];                           //Number of possible questions in a level
+    static int questionInLevel = 0;                                             //Current number of questions in the level
+    static int selectedIndexQuestion;                                           //Selected index of question
+    static Question selectedQuestion;                                           //Selected question
     static Random random = new Random();
 
 
-    public static void main(String[] args) throws InterruptedException, FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException {
 
         System.out.println("Welcome to the game \"Who wants to be a millionaire\" ");
         System.out.println("What is your name?");
@@ -34,19 +42,60 @@ public class WhoWantsToBeAMillionaire {
         //displayQuestions();
         while (action) {
             levelGame++;
-            System.out.println("\n");
-            textOutput("Question from the section \"" + Levels.getLevelDescriptionByNumber(levelGame) + "\"\n");
-            textOutput("The cost of the question is " + Levels.getLevelBonusByNumber(levelGame) + " lei.");
-            System.out.println("\n");
-
-            selectedQuestion = getQuestionByLevel(levelGame);
-            textOutput(selectedQuestion.getQuestionName());
-
-
+            displayQuestion();
+            displayAnswer();
+            displayHelp();
+            option = scan.nextLine();
+            switch (option.toLowerCase()) {
+                case "a" -> checkAnswer(1);
+                case "b" -> checkAnswer(2);
+                case "c" -> checkAnswer(3);
+                case "d" -> checkAnswer(4);
+                case "f" -> fiftyFiftyHelp.getHelp(answers[selectedIndexQuestion]);
+                case "p" -> phoneHelp.getHelp(answers[selectedIndexQuestion]);
+                case "s" -> audienceHelp.getHelp(answers[selectedIndexQuestion]);
+                default -> System.out.println("Invalid input");
+            }
 
             action = false;
 
         }
+    }
+
+    private static void checkAnswer(int selectedAnswer) {
+        if (selectedAnswer == answers[selectedIndexQuestion].getCorrectAnswer()) {
+            System.out.println("correct");
+        } else {
+            System.out.println("Oblom");
+        }
+    }
+
+    private static void displayQuestion() {
+        System.out.println("\n");
+        textOutput("Question from the section \"" + Levels.getLevelDescriptionByNumber(levelGame) + "\"\n");
+        textOutput("The cost of the question is " + Levels.getLevelBonusByNumber(levelGame) + " lei.");
+        System.out.println("\n");
+
+        selectedQuestion = getQuestionByLevel(levelGame);
+        textOutput(selectedQuestion.getQuestionName());
+
+    }
+
+    private static void displayAnswer() {
+        displayAnswerOptions(selectedIndexQuestion);
+    }
+
+    private static void displayHelp() {
+        textOutput("------Help------");
+        textOutput(fiftyFiftyHelp + " | " + phoneHelp + " | " + audienceHelp);
+    }
+
+    private static void displayAnswerOptions(int selectedIndexQuestion) {
+        currentAnswer = answers[selectedIndexQuestion].getAnswer();
+        for (int i = 0; i < currentAnswer.length; i++) {
+            textOutput(currentAnswer[i]);
+        }
+
     }
 
     private static Question getQuestionByLevel(int levelGame) {
@@ -77,7 +126,7 @@ public class WhoWantsToBeAMillionaire {
     }
 
     //Display game rules
-    private static void gameRules() throws InterruptedException {
+    private static void gameRules() {
         System.out.println("\n");
         textOutput("You will face 15 questions.\n" +
                 "A correct answer earns you a certain number of points,\n" +
@@ -85,8 +134,8 @@ public class WhoWantsToBeAMillionaire {
                 "If you answer a question incorrectly, the game ends. \n" +
                 "You have three lifelines: \n" +
                 "1. \"50/50\" — which eliminates two incorrect answer choices; \n" +
-                "2. \"Ask the Audience\" — to gauge the opinion of those present; \n" +
-                "3. \"Phone-a-Friend\" — you may consult a friend for advice, for which you have exactly one minute. \n" +
+                "2. \"Phone-a-Friend\" — you may consult a friend for advice, for which you have exactly one minute. \n" +
+                "3. \"Ask the Audience\" — to gauge the opinion of those present; \n" +
                 "The game also features two safety nets: 1,000 lei and 100,000 lei. \n" +
                 "In the event of an incorrect answer, \n" +
                 "you will receive the amount corresponding to your last reached safety net. \n\n" +
@@ -96,11 +145,16 @@ public class WhoWantsToBeAMillionaire {
     }
 
     //Print the text with pause
-    private static void textOutput(String text) throws InterruptedException {
+    private static void textOutput(String text) {
         for (int i = 0; i < text.length(); i++) {
             System.out.print(text.charAt(i));
-            Thread.sleep(25);
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+        System.out.println("\n");
     }
 
     //Make question array

@@ -15,8 +15,19 @@ public class Answer extends Questions {
         this.correctAnswer = correctAnswer;
     }
 
-    public String toString(){
-        return super.toString() + answer[0] + ", " + answer[1] + ", " + answer[2] + ", " + answer[3]  + ", " + correctAnswer;
+    public String[] getAnswer() {
+        return answer;
+    }
+
+    public int getCorrectAnswer() {
+        return correctAnswer;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return super.toString() + answer[0] + ", " + answer[1] + ", " + answer[2] + ", " + answer[3] + ", " + correctAnswer;
     }
 }
 

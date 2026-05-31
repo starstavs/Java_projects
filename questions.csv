@@ -1,6 +1,6 @@
 LevelNumber;guestionsNum,ber;Questions;Answer1;Answer2;Answer3;Answer4;Correct answer
 1;1;What does an interface primarily define in Java?;A) Object state;B) Implementation;C) Contract of behavior ;D) Memory structure;3
-1;2;What is NOT allowed in an interface (by default ru;A) static method;B) default method;C) constructor ;D) abstract method;3
+1;2;What is NOT allowed in an interface ;A) static method;B) default method;C) constructor ;D) abstract method;3
 1;3;Which statement about abstraction is correct?;A) It shows full implementation;B) It hides implementation details ;C) It removes classes;D) It replaces inheritance;2
 1;4;Which principle allows code reuse in OOP?;A) Encapsulation;B) Polymorphism;C) Inheritance ;D) Compilation;3
 2;5;A class implements an interface when:;A) It extends behavior;B) It provides implementation of all abstract methods ;C) It deletes methods;D) It copies code;2
