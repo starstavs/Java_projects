@@ -9,12 +9,13 @@ public class PhoneHelp extends HelpOption {
     }
 
     @Override
-    public void getHelp(Answer answer) {
+    public int[] getHelp(Answer answer, int correctAnswer) {
         if (getIsUsed()) {
             System.out.println("You have already used this hint.");
-            return;
+            return new int[0];
         }
         setIsUsed(true);
+        return new int[0];
     }
 
 }

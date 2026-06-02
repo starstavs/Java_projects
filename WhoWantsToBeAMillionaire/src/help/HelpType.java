@@ -5,11 +5,13 @@ public enum HelpType {
 
     FIFTY_FIFTY_HELP("F - 50 / 50"),
     AUDIENCE_HELP("S - Ask the Audience"),
-    PHONE_HELP("P - Call a friend");
+    PHONE_HELP("P - Call a friend"),
+    NONE("Game");
 
-    private String helpOptionName;
+    private final String helpOptionName;
 
     HelpType(String helpOptionName){
+
         this.helpOptionName = helpOptionName;
     }
 

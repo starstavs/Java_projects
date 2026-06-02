@@ -16,10 +16,6 @@ public abstract class HelpOption {
 
     }
 
-    public String getHelpOptionName() {
-        return helpOptionName;
-    }
-
     public boolean getIsUsed() {
         return isUsed;
     }
@@ -28,7 +24,7 @@ public abstract class HelpOption {
         return answer;
     }
 
-    public abstract void getHelp(Answer answer);
+    public abstract int[] getHelp(Answer answer, int correctAnswer);
 
     public void setIsUsed(boolean isUsed) {
         this.isUsed = isUsed;

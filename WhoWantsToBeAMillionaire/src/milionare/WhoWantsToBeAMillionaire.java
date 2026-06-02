@@ -2,6 +2,7 @@ package milionare;
 
 import help.AudienceHelp;
 import help.FiftyFiftyHelp;
+import help.HelpType;
 import help.PhoneHelp;
 
 import java.io.File;
@@ -32,7 +33,10 @@ public class WhoWantsToBeAMillionaire {
     static int guaranteedAmount = 0;
     static int currentAmount = 0;
     static boolean isCorrect;
-
+    static int[] wrongNumbers = new int[2];
+    static boolean isAnswered;
+    static String gameState;
+    static boolean ifExist;
 
     public static void main(String[] args) throws FileNotFoundException {
 
@@ -46,27 +50,15 @@ public class WhoWantsToBeAMillionaire {
         //displayQuestions();
         while (action) {
             levelGame++;
-            displayQuestion();
-            displayAnswer();
-            displayHelp();
-            while (true) {
-                option = scan.nextLine();
-                switch (option.toLowerCase()) {
-                    case "a" -> isCorrect = checkAnswer(1);
-                    case "b" -> isCorrect = checkAnswer(2);
-                    case "c" -> isCorrect = checkAnswer(3);
-                    case "d" -> isCorrect = checkAnswer(4);
-                    case "f" -> fiftyFiftyHelp.getHelp(answers[selectedIndexQuestion]);
-                    case "p" -> phoneHelp.getHelp(answers[selectedIndexQuestion]);
-                    case "s" -> audienceHelp.getHelp(answers[selectedIndexQuestion]);
-                    default -> {
-                        textOutput("You pressed the wrong button out of nervousness. :)");
-                        textOutput("Come on, let's try one more time.");
-                        continue;
-                    }
+            isAnswered = false;
+            gameState = HelpType.NONE.getHelpOptionName();
 
-                }
-                break;
+            displayQuestion();
+
+            while (!isAnswered) {
+                displayAnswer();
+                displayHelp();
+                getUserResponse();
             }
             if (!isCorrect) {
                 textOutput("Unfortunately, you gave the wrong answer.");
@@ -83,7 +75,48 @@ public class WhoWantsToBeAMillionaire {
         }
     }
 
+    private static void getUserResponse() {
+        while (true) {
+            option = scan.nextLine();
+            switch (option.toLowerCase()) {
+                case "a" -> isCorrect = checkAnswer(1);
+                case "b" -> isCorrect = checkAnswer(2);
+                case "c" -> isCorrect = checkAnswer(3);
+                case "d" -> isCorrect = checkAnswer(4);
+                case "f" -> {
+                    gameState = HelpType.FIFTY_FIFTY_HELP.getHelpOptionName();
+                    wrongNumbers = fiftyFiftyHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
+                    if (wrongNumbers.length == 0) {
+                        System.out.println("You have already used this hint.");
+                        continue;
+                    }
+
+                    break;
+                }
+                case "p" -> {
+                    gameState = HelpType.PHONE_HELP.getHelpOptionName();
+                    phoneHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
+                    break;
+                }
+                case "s" -> {
+                    gameState = HelpType.AUDIENCE_HELP.getHelpOptionName();
+                    audienceHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
+                    break;
+                }
+
+                default -> {
+                    textOutput("You pressed the wrong button out of nervousness. :)");
+                    textOutput("Come on, let's try one more time.");
+                    continue;
+                }
+
+            }
+            break;
+        }
+    }
+
     private static boolean checkAnswer(int selectedAnswer) {
+        isAnswered = true;
         if (selectedAnswer == answers[selectedIndexQuestion].getCorrectAnswer()) {
             textOutput("Congratulations! That is the correct answer.");
             currentAmount = Levels.getLevelBonusByNumber(levelGame);
@@ -125,8 +158,29 @@ public class WhoWantsToBeAMillionaire {
 
     private static void displayAnswerOptions(int selectedIndexQuestion) {
         currentAnswer = answers[selectedIndexQuestion].getAnswer();
-        for (int i = 0; i < currentAnswer.length; i++) {
-            textOutput(currentAnswer[i]);
+
+        if (gameState.equals(HelpType.AUDIENCE_HELP.getHelpOptionName())) {
+            for (int i = 0; i < currentAnswer.length; i++) {
+                textOutput(currentAnswer[i]);
+            }
+        } else if (gameState.equals(HelpType.FIFTY_FIFTY_HELP.getHelpOptionName())) {
+
+            for (int i = 0; i < currentAnswer.length; i++) {
+                ifExist = false;
+                for (int j =0 ; j<wrongNumbers.length; j++) {
+                    if (wrongNumbers[j] == i) ifExist = true;
+                }
+                if (ifExist) textOutput("\u001B[9m" + currentAnswer[i] + "\u001B[0m");
+                else textOutput(currentAnswer[i]);
+            }
+        } else if (gameState.equals(HelpType.PHONE_HELP.getHelpOptionName())) {
+            for (int i = 0; i < currentAnswer.length; i++) {
+                textOutput(currentAnswer[i]);
+            }
+        } else {
+            for (int i = 0; i < currentAnswer.length; i++) {
+                textOutput(currentAnswer[i]);
+            }
         }
 
     }
