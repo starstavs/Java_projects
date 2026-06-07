@@ -28,15 +28,17 @@ public class WhoWantsToBeAMillionaire {
     static int questionInLevel;                                             //Current number of questions in the level
     static int selectedIndexQuestion;                                           //Selected index of question
     static Question selectedQuestion;                                           //Selected question
-    static Random random = new Random();
+    static Random random = new Random();                                        //Random question from all the questions
     static final int[] guaranteedAmountArray = {1000, 100000, 1000000};
-    static int guaranteedAmount = 0;
-    static int currentAmount = 0;
-    static boolean isCorrect;
+    static final String[] answerLetter = {"A)", "B)", "C)", "D)"};//Guaranteed amount array
+    static int guaranteedAmount = 0;                                            //Guaranteed amount earned
+    static int currentAmount = 0;                                               //Current amount earned
+    static boolean isCorrect;                                                   //If answer is correct
     static int[] wrongNumbers = new int[2];
     static boolean isAnswered;
     static String gameState;
-    static boolean ifExist;
+    static boolean ifExistWrongAnswer;
+    static int[] probalityOfCorrrectAnswer;
 
     public static void main(String[] args) throws FileNotFoundException {
 
@@ -96,11 +98,17 @@ public class WhoWantsToBeAMillionaire {
                 case "p" -> {
                     gameState = HelpType.PHONE_HELP.getHelpOptionName();
                     phoneHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
+
                     break;
                 }
                 case "s" -> {
                     gameState = HelpType.AUDIENCE_HELP.getHelpOptionName();
-                    audienceHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
+                    probalityOfCorrrectAnswer = audienceHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
+                    if(probalityOfCorrrectAnswer.length == 0 ){
+                        System.out.println("You have already used this hint.");
+                        continue;
+                    }
+
                     break;
                 }
 
@@ -131,7 +139,7 @@ public class WhoWantsToBeAMillionaire {
             return true;
 
         } else {
-            System.out.println("Oblom");
+            // System.out.println("Oblom");
             return false;
         }
     }
@@ -161,25 +169,26 @@ public class WhoWantsToBeAMillionaire {
 
         if (gameState.equals(HelpType.AUDIENCE_HELP.getHelpOptionName())) {
             for (int i = 0; i < currentAnswer.length; i++) {
-                textOutput(currentAnswer[i]);
+                textOutput(answerLetter[i] + " " + currentAnswer[i] + " " + probalityOfCorrrectAnswer[i]);
             }
         } else if (gameState.equals(HelpType.FIFTY_FIFTY_HELP.getHelpOptionName())) {
 
             for (int i = 0; i < currentAnswer.length; i++) {
-                ifExist = false;
-                for (int j =0 ; j<wrongNumbers.length; j++) {
-                    if (wrongNumbers[j] == i) ifExist = true;
+                ifExistWrongAnswer = false;
+
+                for (int j = 0; j < wrongNumbers.length; j++) {
+                    if (wrongNumbers[j] == i) ifExistWrongAnswer = true;
                 }
-                if (ifExist) textOutput("\u001B[9m" + currentAnswer[i] + "\u001B[0m");
-                else textOutput(currentAnswer[i]);
+                if (ifExistWrongAnswer) textOutput(answerLetter[i] + " \u001B[9m" + currentAnswer[i] + "\u001B[0m");
+                else textOutput(answerLetter[i] + " " + currentAnswer[i]);
             }
         } else if (gameState.equals(HelpType.PHONE_HELP.getHelpOptionName())) {
             for (int i = 0; i < currentAnswer.length; i++) {
-                textOutput(currentAnswer[i]);
+                textOutput(answerLetter[i] + " " + currentAnswer[i]);
             }
         } else {
             for (int i = 0; i < currentAnswer.length; i++) {
-                textOutput(currentAnswer[i]);
+                textOutput(answerLetter[i] + " " + currentAnswer[i]);
             }
         }
 

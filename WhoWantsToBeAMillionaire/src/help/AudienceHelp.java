@@ -2,11 +2,18 @@ package help;
 
 import milionare.Answer;
 
+import java.util.Random;
+
 public class AudienceHelp extends HelpOption {
+    private int[] probabilityOfCorrectAnswer = new int[4];
+    private int overallPercentage;
+
 
     public AudienceHelp(boolean isUsed) {
+
         super(isUsed, HelpType.AUDIENCE_HELP.getHelpOptionName());
     }
+
 
     @Override
     public int[] getHelp(Answer answer, int correctAnswer) {
@@ -15,6 +22,24 @@ public class AudienceHelp extends HelpOption {
             return new int[0];
         }
         setIsUsed(true);
-        return new int[0];
+        correctAnswer--;
+
+        probabilityOfCorrectAnswer[correctAnswer] = getRandomNumber(20) + 50;
+        overallPercentage = 100 - probabilityOfCorrectAnswer[correctAnswer];
+        for (int i = 0; i < answer.getAnswer().length; i++) {
+            if (i == correctAnswer) continue;
+            else if (i == answer.getAnswer().length - 1) {
+                probabilityOfCorrectAnswer[i] = overallPercentage;
+            } else {
+                probabilityOfCorrectAnswer[i] = getRandomNumber(overallPercentage);
+                overallPercentage -= probabilityOfCorrectAnswer[i];
+            }
+
+        }
+
+
+        return probabilityOfCorrectAnswer;
     }
+
+
 }

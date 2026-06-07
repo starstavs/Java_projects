@@ -3,6 +3,7 @@ package help;
 import milionare.Answer;
 
 public class PhoneHelp extends HelpOption {
+    private int[] probabilityOfCorrectAnswer = new int[4];
 
     public PhoneHelp(boolean isUsed) {
         super(isUsed, HelpType.PHONE_HELP.getHelpOptionName());
@@ -15,6 +16,9 @@ public class PhoneHelp extends HelpOption {
             return new int[0];
         }
         setIsUsed(true);
+
+        
+
         return new int[0];
     }
 

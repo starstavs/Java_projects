@@ -2,13 +2,16 @@ package help;
 
 import milionare.Answer;
 
+import java.util.Random;
+
 public abstract class HelpOption {
 
 
     private boolean isUsed = false;
     private Answer answer;
-    private int correctAnswer;
     private final String helpOptionName;
+    private int randomNumber;
+    private Random random = new Random();
 
     HelpOption(boolean isUsed, String helpOptionName) {
         this.isUsed = isUsed;
@@ -28,6 +31,13 @@ public abstract class HelpOption {
 
     public void setIsUsed(boolean isUsed) {
         this.isUsed = isUsed;
+    }
+
+
+    public int getRandomNumber(int randomizeNumber) {
+        randomNumber = random.nextInt(randomizeNumber);
+
+        return randomNumber;
     }
 
     @Override
