@@ -6,6 +6,8 @@ import help.HelpType;
 import help.PhoneHelp;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.util.Random;
@@ -14,8 +16,10 @@ import java.util.Random;
 public class WhoWantsToBeAMillionaire {
     static Scanner scan = new Scanner(System.in);                               //Scanner value
     static String playerName;                                                   //Player name
-    static Question[] question = new Question[60];                              //Array with questions
-    static Answer[] answers = new Answer[240];                                  //Array with answers
+   // static Question[] question = new Question[60];                              //Array with questions
+    static List<Question> question = new ArrayList<>();
+    //static Answer[] answers = new Answer[240];                                  //Array with answers
+    static List<Answer> answers = new ArrayList<>();
     static String[] currentAnswer = new String[4];                              //Array with 4 available answer for question
     static FiftyFiftyHelp fiftyFiftyHelp = new FiftyFiftyHelp(false);    //Help 50/50
     static AudienceHelp audienceHelp = new AudienceHelp(false);          //Help audience
@@ -40,7 +44,7 @@ public class WhoWantsToBeAMillionaire {
     static boolean ifExistWrongAnswer;
     static int[] probabilityOfCorrectAnswer;
     static int[] probabilityFriendCorrectAnswer;
-    static String[] friendsHit;
+
 
     public static void main(String[] args) throws FileNotFoundException {
 
@@ -66,7 +70,9 @@ public class WhoWantsToBeAMillionaire {
             }
             if (!isCorrect) {
                 textOutput("Unfortunately, you gave the wrong answer.");
-                textOutput("The correct answer is " + currentAnswer[(int) (answers[selectedIndexQuestion].getCorrectAnswer() - 1)]);
+                //textOutput("The correct answer is " + currentAnswer[(int) (answers[selectedIndexQuestion].getCorrectAnswer() - 1)]);
+                textOutput("The correct answer is " + currentAnswer[(int) (answers.get(selectedIndexQuestion).getCorrectAnswer() - 1)]);
+
                 textOutput(" You earned " + guaranteedAmount + " lei on this game.");
                 textOutput("Game is over");
                 action = false;
@@ -89,7 +95,8 @@ public class WhoWantsToBeAMillionaire {
                 case "d" -> isCorrect = checkAnswer(4);
                 case "f" -> {
                     gameState = HelpType.FIFTY_FIFTY_HELP.getHelpOptionName();
-                    wrongNumbers = fiftyFiftyHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
+                    //wrongNumbers = fiftyFiftyHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
+                    wrongNumbers = fiftyFiftyHelp.getHelp(answers.get(selectedIndexQuestion), answers.get(selectedIndexQuestion).getCorrectAnswer());
                     if (wrongNumbers.length == 0) {
                         System.out.println("You have already used this hint.");
                         continue;
@@ -99,7 +106,8 @@ public class WhoWantsToBeAMillionaire {
                 }
                 case "p" -> {
                     gameState = HelpType.PHONE_HELP.getHelpOptionName();
-                    probabilityFriendCorrectAnswer = phoneHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
+                   // probabilityFriendCorrectAnswer = phoneHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
+                    probabilityFriendCorrectAnswer = phoneHelp.getHelp(answers.get(selectedIndexQuestion), answers.get(selectedIndexQuestion).getCorrectAnswer());
                     if (probabilityFriendCorrectAnswer.length == 0) {
                         System.out.println("You have already used this hint.hhhhg");
                         continue;
@@ -109,7 +117,8 @@ public class WhoWantsToBeAMillionaire {
                 }
                 case "s" -> {
                     gameState = HelpType.AUDIENCE_HELP.getHelpOptionName();
-                    probabilityOfCorrectAnswer = audienceHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
+                    //probabilityOfCorrectAnswer = audienceHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
+                    probabilityOfCorrectAnswer = audienceHelp.getHelp(answers.get(selectedIndexQuestion), answers.get(selectedIndexQuestion).getCorrectAnswer());
                     if (probabilityOfCorrectAnswer.length == 0) {
                         System.out.println("You have already used this hint.");
                         continue;
@@ -131,7 +140,8 @@ public class WhoWantsToBeAMillionaire {
 
     private static boolean checkAnswer(int selectedAnswer) {
         isAnswered = true;
-        if (selectedAnswer == answers[selectedIndexQuestion].getCorrectAnswer()) {
+        //if (selectedAnswer == answers[selectedIndexQuestion].getCorrectAnswer()) {
+        if (selectedAnswer == answers.get(selectedIndexQuestion).getCorrectAnswer()) {
             textOutput("Congratulations! That is the correct answer.");
             currentAmount = Levels.getLevelBonusByNumber(levelGame);
             textOutput("You earned " + currentAmount + " lei for the correct answer to the question.");
@@ -171,7 +181,8 @@ public class WhoWantsToBeAMillionaire {
     }
 
     private static void displayAnswerOptions(int selectedIndexQuestion) {
-        currentAnswer = answers[selectedIndexQuestion].getAnswer();
+        //currentAnswer = answers[selectedIndexQuestion].getAnswer();
+        currentAnswer = answers.get(selectedIndexQuestion).getAnswer();
 
         if (gameState.equals(HelpType.AUDIENCE_HELP.getHelpOptionName())) {
             for (int i = 0; i < currentAnswer.length; i++) {
@@ -209,9 +220,12 @@ public class WhoWantsToBeAMillionaire {
 
     private static Question getQuestionByLevel(int levelGame) {
         questionInLevel = 0;
-        for (int i = 0; i < question.length; i++) {
-            if (question[i].getQuestionLevel() == levelGame) {
-                questionNumberInLevel[questionInLevel++] = question[i].getQuestionNumber();
+        //for (int i = 0; i < question.length; i++) {
+        for (int i = 0; i < question.size(); i++) {
+           // if (question[i].getQuestionLevel() == levelGame) {
+            if (question.get(i).getQuestionLevel() == levelGame) {
+                //questionNumberInLevel[questionInLevel++] = question[i].getQuestionNumber();
+                questionNumberInLevel[questionInLevel++] = question.get(i).getQuestionNumber();
             }
         }
         int temp = random.nextInt(questionInLevel);
@@ -219,7 +233,8 @@ public class WhoWantsToBeAMillionaire {
 
         //System.out.println(question[selectedQuestion].getQuestionName());
 
-        return question[selectedIndexQuestion];
+       // return question[selectedIndexQuestion];
+        return question.get(selectedIndexQuestion);
 
     }
 
@@ -228,8 +243,10 @@ public class WhoWantsToBeAMillionaire {
     private static void displayQuestions() {
         for (int i = 0; i < questionIndex; i++) {
             for (int j = 0; j < answerIndex; j++) {
-                System.out.println(question[i]);
-                System.out.println(answers[j]);
+                //System.out.println(question[i]);
+                 System.out.println(question.get(i));
+                //System.out.println(answers[j]);
+                System.out.println(answers.get(j));
             }
         }
     }
@@ -291,8 +308,10 @@ public class WhoWantsToBeAMillionaire {
             answer3 = partLine[5];
             answer4 = partLine[6];
             correctAnswer = Integer.parseInt(partLine[7]);
-            question[questionIndex++] = new Question(levelNumber, questionNumber, questionBody);
-            answers[answerIndex++] = new Answer(levelNumber, questionNumber, answer1, answer2, answer3, answer4, correctAnswer);
+            //question[questionIndex++] = new Question(levelNumber, questionNumber, questionBody);
+            question.add(new Question(levelNumber, questionNumber, questionBody));
+            //answers[answerIndex++] = new Answer(levelNumber, questionNumber, answer1, answer2, answer3, answer4, correctAnswer);
+            answers.add(new Answer(levelNumber, questionNumber, answer1, answer2, answer3, answer4, correctAnswer));
 
         }
     }
