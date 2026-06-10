@@ -38,7 +38,9 @@ public class WhoWantsToBeAMillionaire {
     static boolean isAnswered;
     static String gameState;
     static boolean ifExistWrongAnswer;
-    static int[] probalityOfCorrrectAnswer;
+    static int[] probabilityOfCorrectAnswer;
+    static int[] probabilityFriendCorrectAnswer;
+    static String[] friendsHit;
 
     public static void main(String[] args) throws FileNotFoundException {
 
@@ -97,14 +99,18 @@ public class WhoWantsToBeAMillionaire {
                 }
                 case "p" -> {
                     gameState = HelpType.PHONE_HELP.getHelpOptionName();
-                    phoneHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
+                    probabilityFriendCorrectAnswer = phoneHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
+                    if (probabilityFriendCorrectAnswer.length == 0) {
+                        System.out.println("You have already used this hint.hhhhg");
+                        continue;
+                    }
 
                     break;
                 }
                 case "s" -> {
                     gameState = HelpType.AUDIENCE_HELP.getHelpOptionName();
-                    probalityOfCorrrectAnswer = audienceHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
-                    if(probalityOfCorrrectAnswer.length == 0 ){
+                    probabilityOfCorrectAnswer = audienceHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
+                    if (probabilityOfCorrectAnswer.length == 0) {
                         System.out.println("You have already used this hint.");
                         continue;
                     }
@@ -169,7 +175,7 @@ public class WhoWantsToBeAMillionaire {
 
         if (gameState.equals(HelpType.AUDIENCE_HELP.getHelpOptionName())) {
             for (int i = 0; i < currentAnswer.length; i++) {
-                textOutput(answerLetter[i] + " " + currentAnswer[i] + " " + probalityOfCorrrectAnswer[i]);
+                textOutput(answerLetter[i] + " " + currentAnswer[i] + " " + probabilityOfCorrectAnswer[i] +  "%");
             }
         } else if (gameState.equals(HelpType.FIFTY_FIFTY_HELP.getHelpOptionName())) {
 
@@ -184,7 +190,7 @@ public class WhoWantsToBeAMillionaire {
             }
         } else if (gameState.equals(HelpType.PHONE_HELP.getHelpOptionName())) {
             for (int i = 0; i < currentAnswer.length; i++) {
-                textOutput(answerLetter[i] + " " + currentAnswer[i]);
+                textOutput(answerLetter[i] + " " + currentAnswer[i] + " " + "-------- A friend's reply: \""+getFriendAnswer(probabilityFriendCorrectAnswer[i])+"\"");
             }
         } else {
             for (int i = 0; i < currentAnswer.length; i++) {
@@ -192,6 +198,13 @@ public class WhoWantsToBeAMillionaire {
             }
         }
 
+    }
+
+    private static String getFriendAnswer(int friendCorrectAnswer) {
+        if (friendCorrectAnswer < 20) return "Unlikely";
+        if (friendCorrectAnswer >= 20 & friendCorrectAnswer < 45) return "I doubt";
+        if (friendCorrectAnswer >= 45 & friendCorrectAnswer < 75) return "I think... maybe this one?";
+        return "I think this is the correct answer.";
     }
 
     private static Question getQuestionByLevel(int levelGame) {
