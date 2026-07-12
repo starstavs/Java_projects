@@ -1,4 +1,4 @@
-package millionaire;
+package edu.tekwill.millionaire.millionaire;
 
 public enum AnswerOrder {
     LETTER_1(1, "A"),

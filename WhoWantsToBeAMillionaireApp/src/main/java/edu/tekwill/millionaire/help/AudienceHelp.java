@@ -1,14 +1,18 @@
-package help;
+package edu.tekwill.millionaire.help;
 
-import question.Question;
 
-public class PhoneHelp extends HelpOption {
+import millionaire.Question;
+
+
+public class AudienceHelp extends HelpOption {
     private int[] probabilityOfCorrectAnswer = new int[4];
     private int overallPercentage;
     private int correctAnswer;
 
-    public PhoneHelp(boolean isUsed) {
-        super(isUsed, HelpType.PHONE_HELP.getHelpOptionName());
+
+    public AudienceHelp(boolean isUsed) {
+
+        super(isUsed, HelpType.AUDIENCE_HELP.getHelpOptionName());
     }
 
 
@@ -33,7 +37,9 @@ public class PhoneHelp extends HelpOption {
             }
 
         }
+
         return probabilityOfCorrectAnswer;
     }
+
 
 }

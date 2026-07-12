@@ -3,6 +3,6 @@ module org.example.whowantstobeamillionaireapp {
     requires javafx.fxml;
 
 
-    opens org.example.whowantstobeamillionaireapp to javafx.fxml;
-    exports org.example.whowantstobeamillionaireapp;
+    opens edu.tekwill.millionaire to javafx.fxml;
+    exports edu.tekwill.millionaire;
 }

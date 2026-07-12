@@ -1,7 +1,7 @@
 package help;
 
 
-import millionaire.Question;
+import question.Question;
 
 
 public class AudienceHelp extends HelpOption {

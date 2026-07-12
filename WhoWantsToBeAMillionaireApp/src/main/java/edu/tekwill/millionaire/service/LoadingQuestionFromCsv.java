@@ -1,4 +1,4 @@
-package io_package;
+package edu.tekwill.millionaire.service;
 
 import millionaire.Answer;
 import millionaire.AnswerOrder;

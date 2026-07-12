@@ -1,6 +1,6 @@
-package help;
+package edu.tekwill.millionaire.help;
 
-import question.Answer;
+import millionaire.Answer;
 
 import java.util.Random;
 

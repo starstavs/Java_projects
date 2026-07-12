@@ -1,4 +1,4 @@
-package millionaire;
+package question;
 
 public class Answer {
 

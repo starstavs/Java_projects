@@ -1,4 +1,4 @@
-package org.example.whowantstobeamillionaireapp;
+package edu.tekwill.millionaire;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ import java.io.IOException;
 public class WhoWantsToBeAMillionaireApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(WhoWantsToBeAMillionaireApp.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(WhoWantsToBeAMillionaireApp.class.getResource("game-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         stage.setTitle("Who Wants To Be A Millionaire");
         stage.setScene(scene);

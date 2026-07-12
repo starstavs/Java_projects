@@ -1,8 +1,5 @@
-package millionaire;
+package edu.tekwill.millionaire.millionaire;
 
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Question {
     private final String questionName;

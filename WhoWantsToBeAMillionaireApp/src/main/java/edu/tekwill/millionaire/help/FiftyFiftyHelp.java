@@ -1,9 +1,12 @@
-package help;
+package edu.tekwill.millionaire.help;
 
-import question.Answer;
-import question.Question;
+import millionaire.Answer;
+import millionaire.Question;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class FiftyFiftyHelp extends HelpOption {
 

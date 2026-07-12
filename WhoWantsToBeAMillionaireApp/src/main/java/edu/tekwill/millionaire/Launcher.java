@@ -1,4 +1,4 @@
-package org.example.whowantstobeamillionaireapp;
+package edu.tekwill.millionaire;
 
 import javafx.application.Application;
 

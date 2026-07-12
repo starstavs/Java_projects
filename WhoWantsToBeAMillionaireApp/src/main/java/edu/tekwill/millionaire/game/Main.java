@@ -1,14 +1,17 @@
-package game;
+package edu.tekwill.millionaire.game;
 
 import help.AudienceHelp;
 import help.FiftyFiftyHelp;
 import help.PhoneHelp;
-import service.PlayerRecordsCsvLoader;
-import question.Answer;
-import service.LoadingQuestionFromCsv;
-import question.Question;
+import io_package.LoadingQuestionFromCsv;
+import io_package.PlayerRecordsCsvLoader;
+import millionaire.Answer;
+import millionaire.Question;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
 
