@@ -1,6 +1,6 @@
 package edu.tekwill.millionaire.service;
 
-import game.PlayerRecords;
+import edu.tekwill.millionaire.game.PlayerRecords;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 

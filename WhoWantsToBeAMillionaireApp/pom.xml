@@ -38,6 +38,18 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>1.14.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.13.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -61,7 +73,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                org.example.whowantstobeamillionaireapp/edu.tekwill.millionaire.WhoWantsToBeAMillionaireApp
+                                org.example.whowantstobeamillionaireapp/edu.tekwill.millionaire.Main
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

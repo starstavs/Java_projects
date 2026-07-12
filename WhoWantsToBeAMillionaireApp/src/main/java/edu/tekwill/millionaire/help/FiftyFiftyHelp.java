@@ -1,7 +1,7 @@
 package edu.tekwill.millionaire.help;
 
-import millionaire.Answer;
-import millionaire.Question;
+import edu.tekwill.millionaire.model.Answer;
+import edu.tekwill.millionaire.model.Question;
 
 import java.util.ArrayList;
 import java.util.Arrays;

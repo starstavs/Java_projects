@@ -1,4 +1,4 @@
-package edu.tekwill.millionaire.game;
+package edu.tekwill.millionaire.model;
 
 public class Player {
     private String name;

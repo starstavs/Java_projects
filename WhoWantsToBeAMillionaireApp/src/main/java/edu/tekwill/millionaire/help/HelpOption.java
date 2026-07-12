@@ -1,6 +1,6 @@
 package edu.tekwill.millionaire.help;
 
-import millionaire.Answer;
+import edu.tekwill.millionaire.model.Answer;
 
 import java.util.Random;
 

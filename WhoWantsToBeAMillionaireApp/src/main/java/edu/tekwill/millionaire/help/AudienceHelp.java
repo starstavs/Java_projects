@@ -1,7 +1,7 @@
 package edu.tekwill.millionaire.help;
 
 
-import millionaire.Question;
+import edu.tekwill.millionaire.model.Question;
 
 
 public class AudienceHelp extends HelpOption {

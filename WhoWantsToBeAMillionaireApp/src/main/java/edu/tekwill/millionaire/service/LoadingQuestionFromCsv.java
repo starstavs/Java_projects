@@ -1,8 +1,8 @@
 package edu.tekwill.millionaire.service;
 
-import millionaire.Answer;
-import millionaire.AnswerOrder;
-import millionaire.Question;
+import edu.tekwill.millionaire.model.Answer;
+import edu.tekwill.millionaire.model.AnswerOrder;
+import edu.tekwill.millionaire.model.Question;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 

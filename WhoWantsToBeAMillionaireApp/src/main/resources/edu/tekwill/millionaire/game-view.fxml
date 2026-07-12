@@ -3,17 +3,17 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.TextArea?>
 <BorderPane prefHeight="416.0" prefWidth="657.0"
             xmlns="http://javafx.com/javafx/26"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="GameController">
+            fx:controller="edu.tekwill.millionaire.controler.GameController">
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="660.0" spacing="30.0" BorderPane.alignment="CENTER">
          <children>
@@ -24,7 +24,7 @@
                         <HBox spacing="10.0">
                            <children>
                               <Label text="Level 1" />
-                              <Label fx:id="levelNr" text="Label2" textAlignment="CENTER" />
+                              <Label fx:id="levelNumber" text="Label2" textAlignment="CENTER" />
                            </children>
                         </HBox>
                      </children>
@@ -49,19 +49,19 @@
          <children>
             <VBox alignment="CENTER" prefHeight="391.0" prefWidth="500.0" spacing="25.0">
                <children>
-                  <Label fx:id="question" alignment="TOP_CENTER" prefHeight="151.0" prefWidth="500.0" text="question" textAlignment="CENTER" textFill="#2c0a83">
+                  <Label fx:id="questionLabel" alignment="TOP_CENTER" prefHeight="151.0" prefWidth="500.0" text="question" textAlignment="CENTER" textFill="#2c0a83">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Label>
                   <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="500.0" spacing="100.0">
                      <children>
-                        <Button fx:id="answer1" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Button">
+                        <Button fx:id="answer1" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Button" onAction="#checkAnswer1">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
                         </Button>
-                        <Button fx:id="answer2" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Button" />
+                        <Button fx:id="answer2" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Button" onAction="#checkAnswer2"/>
                      </children>
                      <opaqueInsets>
                         <Insets />
@@ -72,12 +72,12 @@
                   </HBox>
                   <HBox prefHeight="40.0" prefWidth="500.0" spacing="100.0">
                      <children>
-                        <Button fx:id="answer3" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Button">
+                        <Button fx:id="answer3" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Button" onAction="#checkAnswer3">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
                         </Button>
-                        <Button fx:id="answer4" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Button" />
+                        <Button fx:id="answer4" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Button" onAction="#checkAnswer4" />
                      </children>
                      <padding>
                         <Insets left="20.0" />
@@ -98,7 +98,7 @@
                   <Label fx:id="playerScore" text="Label" textAlignment="CENTER" />
                </children>
             </HBox>
-            <TextField fx:id="playerRecords" prefHeight="401.0" prefWidth="149.0" />
+            <TextArea fx:id="playerRecords" prefHeight="401.0" prefWidth="149.0" editable="false" />
          </children>
       </VBox>
    </right>

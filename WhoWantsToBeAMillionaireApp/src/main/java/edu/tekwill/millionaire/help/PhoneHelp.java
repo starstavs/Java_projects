@@ -1,6 +1,6 @@
 package edu.tekwill.millionaire.help;
 
-import millionaire.Question;
+import edu.tekwill.millionaire.model.Question;
 
 public class PhoneHelp extends HelpOption {
     private int[] probabilityOfCorrectAnswer = new int[4];
