@@ -1,5 +1,8 @@
-package millionaire;
+package io_package;
 
+import millionaire.Answer;
+import millionaire.AnswerOrder;
+import millionaire.Question;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
@@ -9,7 +12,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadingDataFromCsv {
+public class LoadingQuestionFromCsv {
     private int questionLevel;
     private int questionNumber;
     private String questionName;

@@ -13,7 +13,7 @@ public class Question {
     private Answer[] wrongAnswer = new Answer[4];
 
 
-    Question(int questionLevel, int questionNumber, String questionName, Answer[] answers, int questionScore) {
+   public Question(int questionLevel, int questionNumber, String questionName, Answer[] answers, int questionScore) {
         this.questionLevel = questionLevel;
         this.questionNumber = questionNumber;
         this.questionName = questionName;

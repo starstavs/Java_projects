@@ -2,7 +2,6 @@ package help;
 
 import millionaire.Answer;
 
-import java.util.List;
 import java.util.Random;
 
 public abstract class HelpOption {
@@ -28,7 +27,6 @@ public abstract class HelpOption {
         return answer;
     }
 
-   // public abstract List<Answer> getHelp(Answer answer, int correctAnswer);
 
     public void setIsUsed(boolean isUsed) {
         this.isUsed = isUsed;

@@ -2,10 +2,10 @@ package game;
 
 import help.AudienceHelp;
 import help.FiftyFiftyHelp;
-import help.HelpType;
 import help.PhoneHelp;
+import io_package.PlayerRecordsCsvLoader;
 import millionaire.Answer;
-import millionaire.LoadingDataFromCsv;
+import io_package.LoadingQuestionFromCsv;
 import millionaire.Question;
 
 import java.util.*;
@@ -14,11 +14,13 @@ public class Main {
 
     static Scanner scan = new Scanner(System.in);
     private static final String FILE_PATH = "input/questions_ro.csv";
+    private static final String FILE_USER_RECORDS_PATH = "output/user_data.csv";
     private static boolean action, isAnswered, isCorrect;
     private static int levelGame = 0;
-    private static String gameState, option, outputText;
+    private static String option, outputText;
     private static Question selectedQuestion;
-    private static List<Question> question, currentLevelList;
+    private static List<Question> questions, currentLevelList;
+    private static List<PlayerRecords> playerRecordsList;
     private static Random random = new Random();
     private static Answer[] currentAnswers = new Answer[4];
     private static FiftyFiftyHelp fiftyFiftyHelp = new FiftyFiftyHelp(false);    //Help 50/50
@@ -31,8 +33,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        LoadingDataFromCsv loadingDataFromCsv = new LoadingDataFromCsv();
-        question = loadingDataFromCsv.loadFromCsv(FILE_PATH);
+        LoadingQuestionFromCsv loadingDataFromCsv = new LoadingQuestionFromCsv();
+        questions = loadingDataFromCsv.loadFromCsv(FILE_PATH);
+
+        PlayerRecordsCsvLoader playerRecordsCsvLoader = new PlayerRecordsCsvLoader();
+        playerRecordsList = playerRecordsCsvLoader.loadPlayerFromCsv(FILE_USER_RECORDS_PATH);
 
 
         System.out.println("Welcome to the game \"Who wants to be a millionaire\" ");
@@ -45,7 +50,6 @@ public class Main {
         while (action) {
             levelGame++;
             isAnswered = false;
-            gameState = HelpType.NONE.getHelpOptionName();
 
             displayQuestion();
 
@@ -56,9 +60,7 @@ public class Main {
             }
             if (!isCorrect) {
                 textOutput("Unfortunately, you gave the wrong answer.");
-                //textOutput("The correct answer is " + currentAnswer[(int) (answers[selectedIndexQuestion].getCorrectAnswer() - 1)]);
-                // textOutput("The correct answer is " + currentAnswer[(int) (answers.get(selectedIndexQuestion).getCorrectAnswer() - 1)]);
-
+                textOutput("Correct answer is \"" + selectedQuestion.getAnswers()[selectedQuestion.getCorrectAnswerIndex()].getAnswer() + "\"");
                 textOutput(" You earned " + player.getGuaranteedAmount() + " lei on this game.");
                 textOutput("Game is over");
                 action = false;
@@ -92,7 +94,6 @@ public class Main {
                     isCorrect = selectedQuestion.getCorrectAnswer(3);
                 }
                 case "f" -> {
-                    gameState = HelpType.FIFTY_FIFTY_HELP.getHelpOptionName();
                     wrongAnswer = fiftyFiftyHelp.getHelp(selectedQuestion);
 
                     if (wrongAnswer.isEmpty()) {
@@ -103,24 +104,19 @@ public class Main {
                     break;
                 }
                 case "p" -> {
-                    gameState = HelpType.PHONE_HELP.getHelpOptionName();
                     probabilityFriendCorrectAnswer = phoneHelp.getHelp(selectedQuestion);
                     if (probabilityFriendCorrectAnswer.length == 0) {
                         System.out.println("You have already used this hint.");
                         continue;
                     }
-
                     break;
                 }
                 case "s" -> {
-                    gameState = HelpType.AUDIENCE_HELP.getHelpOptionName();
-                    //probabilityOfCorrectAnswer = audienceHelp.getHelp(answers[selectedIndexQuestion], answers[selectedIndexQuestion].getCorrectAnswer());
                     probabilityOfCorrectAnswer = audienceHelp.getHelp(selectedQuestion);
                     if (probabilityOfCorrectAnswer.length == 0) {
                         System.out.println("You have already used this hint.");
                         continue;
                     }
-
                     break;
                 }
 
@@ -139,34 +135,13 @@ public class Main {
                 textOutput("Congratulations, you gave the correct answer, which earned you " + selectedQuestion.getQuestionScore() + " lei.");
                 if (guaranteedAmountList.contains(selectedQuestion.getQuestionScore())) {
                     player.setGuaranteedAmount(selectedQuestion.getQuestionScore());
-                    textOutput("This is your guaranteed amount. ");
+                    textOutput("This is your guaranteed amount - " + player.getGuaranteedAmount() + " lei.");
                 }
 
             }
         }
 
     }
-
-//    private static boolean checkAnswer(int selectedAnswer) {
-//        isAnswered = true;
-//        //if (selectedAnswer == answers[selectedIndexQuestion].getCorrectAnswer()) {
-//        if (selectedAnswer == answers.get(selectedIndexQuestion).getCorrectAnswer()) {
-//            textOutput("Congratulations! That is the correct answer.");
-//            currentAmount = Levels.getLevelBonusByNumber(levelGame);
-//            textOutput("You earned " + currentAmount + " lei for the correct answer to the question.");
-//            for (int sum : guaranteedAmountArray) {
-//                if (currentAmount == sum) {
-//                    guaranteedAmount = currentAmount;
-//                    textOutput("You have reached your guaranteed amount and it is " + guaranteedAmount + " lei.");
-//                    break;
-//                }
-//            }
-//            return true;
-//
-//        } else {
-//            return false;
-//        }
-//    }
 
     private static void displayQuestion() {
         System.out.println("\n");
@@ -211,36 +186,6 @@ public class Main {
         textOutput(fiftyFiftyHelp + " | " + phoneHelp + " | " + audienceHelp);
     }
 
-//    private static void displayAnswerOptions(int selectedIndexQuestion) {
-//        //currentAnswer = answers[selectedIndexQuestion].getAnswer();
-//        currentAnswer = answers.get(selectedIndexQuestion).getAnswer();
-//
-//        if (gameState.equals(HelpType.AUDIENCE_HELP.getHelpOptionName())) {
-//            for (int i = 0; i < currentAnswer.length; i++) {
-//                textOutput(answerLetter[i] + " " + currentAnswer[i] + " " + probabilityOfCorrectAnswer[i] + "%");
-//            }
-//        } else if (gameState.equals(HelpType.FIFTY_FIFTY_HELP.getHelpOptionName())) {
-//
-//            for (int i = 0; i < currentAnswer.length; i++) {
-//                ifExistWrongAnswer = false;
-//
-//                for (int j = 0; j < wrongNumbers.length; j++) {
-//                    if (wrongNumbers[j] == i) ifExistWrongAnswer = true;
-//                }
-//                if (ifExistWrongAnswer) textOutput(answerLetter[i] + " \u001B[9m" + currentAnswer[i] + "\u001B[0m");
-//                else textOutput(answerLetter[i] + " " + currentAnswer[i]);
-//            }
-//        } else if (gameState.equals(HelpType.PHONE_HELP.getHelpOptionName())) {
-//            for (int i = 0; i < currentAnswer.length; i++) {
-//                textOutput(answerLetter[i] + " " + currentAnswer[i] + " " + "-------- A friend's reply: \"" + getFriendAnswer(probabilityFriendCorrectAnswer[i]) + "\"");
-//            }
-//        } else {
-//            for (int i = 0; i < currentAnswer.length; i++) {
-//                textOutput(answerLetter[i] + " " + currentAnswer[i]);
-//            }
-//        }
-//
-//    }
 
     private static String getFriendAnswer(int friendCorrectAnswer) {
 
@@ -252,7 +197,7 @@ public class Main {
 
     private static Question getQuestionByLevel(int levelGame) {
 
-        currentLevelList = question.stream()
+        currentLevelList = questions.stream()
                 .filter(question -> question.getQuestionLevel() == levelGame)
                 .toList();
         int temp = random.nextInt(currentLevelList.size() - 1);
@@ -260,37 +205,7 @@ public class Main {
         return currentLevelList.get(temp);
 
     }
-//    questionInLevel = 0;
-//        //for (int i = 0; i < question.length; i++) {
-//        for (int i = 0; i < question.size(); i++) {
-//            // if (question[i].getQuestionLevel() == levelGame) {
-//            if (question.get(i).getQuestionLevel() == levelGame) {
-//                //questionNumberInLevel[questionInLevel++] = question[i].getQuestionNumber();
-//                questionNumberInLevel[questionInLevel++] = question.get(i).getQuestionNumber();
-//            }
-//        }
-//        int temp = random.nextInt(questionInLevel);
-//        selectedIndexQuestion = questionNumberInLevel[temp] - 1;
 //
-//        //System.out.println(question[selectedQuestion].getQuestionName());
-//
-//        // return question[selectedIndexQuestion];
-//        return question.get(selectedIndexQuestion);
-//
-//    }
-
-
-    //Display all question and atword
-//    private static void displayQuestions() {
-//        for (int i = 0; i < questionIndex; i++) {
-//            for (int j = 0; j < answerIndex; j++) {
-//                //System.out.println(question[i]);
-//                System.out.println(question.get(i));
-//                //System.out.println(answers[j]);
-//                System.out.println(answers.get(j));
-//            }
-//        }
-//    }
 
     //Display game rules
     private static void gameRules() {
@@ -323,40 +238,6 @@ public class Main {
         }
         System.out.println("\n");
     }
-
-    //Make question array
-//    private static void setQuestions() throws FileNotFoundException {
-//
-//        File file = new File("questionTable");
-//        // System.out.println(new File(".").getAbsolutePath());
-//        Scanner scanFile = new Scanner(file);
-//        String fileLine;
-//        int levelNumber;
-//        int questionNumber;
-//        String questionBody;
-//        String[] partLine;
-//        String answer1, answer2, answer3, answer4;
-//        int correctAnswer;
-//
-//        while (scanFile.hasNextLine()) {
-//            fileLine = scanFile.nextLine();
-//            partLine = fileLine.split(";");
-//            levelNumber = Integer.parseInt(partLine[0]);
-//            questionNumber = Integer.parseInt(partLine[1]);
-//            questionBody = partLine[2];
-//            answer1 = partLine[3];
-//            answer2 = partLine[4];
-//            answer3 = partLine[5];
-//            answer4 = partLine[6];
-//            correctAnswer = Integer.parseInt(partLine[7]);
-//            //question[questionIndex++] = new Question(levelNumber, questionNumber, questionBody);
-//            question.add(new Question(levelNumber, questionNumber, questionBody));
-//            //answers[answerIndex++] = new Answer(levelNumber, questionNumber, answer1, answer2, answer3, answer4, correctAnswer);
-//            answers.add(new Answer(levelNumber, questionNumber, answer1, answer2, answer3, answer4, correctAnswer));
-//
-//        }
-//    }
-
 
 }
 

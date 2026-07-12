@@ -8,7 +8,7 @@ public class Answer {
     private AnswerOrder answerOrder;
     private boolean isVisible;
 
-    Answer(String answer, boolean isCorrect,   AnswerOrder answerOrder) {
+    public Answer(String answer, boolean isCorrect,   AnswerOrder answerOrder) {
 
         this.answer = answer;
         this.isCorrect = isCorrect;

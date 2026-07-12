@@ -1,6 +1,5 @@
 package help;
 
-import millionaire.Answer;
 import millionaire.Question;
 
 public class PhoneHelp extends HelpOption {
@@ -23,7 +22,7 @@ public class PhoneHelp extends HelpOption {
 
         probabilityOfCorrectAnswer[correctAnswer] = getRandomNumber(20) + 50;
         overallPercentage = 100 - probabilityOfCorrectAnswer[correctAnswer];
-        for (int i = 0; i <  question.getAnswers().length; i++) {
+        for (int i = 0; i < question.getAnswers().length; i++) {
             if (i == correctAnswer) continue;
             else if (!question.getAnswers()[i].isVisible()) continue;
             else if (i == question.getAnswers().length - 1) {
@@ -34,8 +33,6 @@ public class PhoneHelp extends HelpOption {
             }
 
         }
-
-
         return probabilityOfCorrectAnswer;
     }
 

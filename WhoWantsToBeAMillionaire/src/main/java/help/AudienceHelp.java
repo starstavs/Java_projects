@@ -1,9 +1,8 @@
 package help;
 
-import millionaire.Answer;
+
 import millionaire.Question;
 
-import java.util.List;
 
 public class AudienceHelp extends HelpOption {
     private int[] probabilityOfCorrectAnswer = new int[4];
@@ -17,7 +16,6 @@ public class AudienceHelp extends HelpOption {
     }
 
 
-
     public int[] getHelp(Question question) {
         if (getIsUsed()) {
             System.out.println("You have already used this hint.");
@@ -28,7 +26,7 @@ public class AudienceHelp extends HelpOption {
 
         probabilityOfCorrectAnswer[correctAnswer] = getRandomNumber(20) + 50;
         overallPercentage = 100 - probabilityOfCorrectAnswer[correctAnswer];
-        for (int i = 0; i <  question.getAnswers().length; i++) {
+        for (int i = 0; i < question.getAnswers().length; i++) {
             if (i == correctAnswer) continue;
             else if (!question.getAnswers()[i].isVisible()) continue;
             else if (i == question.getAnswers().length - 1) {
