@@ -9,6 +9,9 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +24,9 @@ public class LoadingQuestionFromCsv {
 
     public List<Question> loadFromCsv(String filePath) {
         List<Question> questions = new ArrayList<>();
-        try (Reader reader = new FileReader(filePath)) {
+        try (Reader reader = Files.newBufferedReader(
+                Path.of(filePath),
+                StandardCharsets.UTF_8)) {
             Iterable<CSVRecord> records = CSVFormat.DEFAULT
                     .builder()
                     .setDelimiter(";")

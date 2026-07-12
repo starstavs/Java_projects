@@ -16,26 +16,27 @@ import java.util.Random;
 public class Game {
 
     // static Scanner scan = new Scanner(System.in);
-    private static final String FILE_PATH = "input/questions_ro.csv";
-    private static final String FILE_USER_RECORDS_PATH = "output/user_data.csv";
-    private static boolean isAnswered, isCorrect;
-    private static int levelGame = 0;
-    private static String option, outputText;
-    private static Question selectedQuestion;
+    private final String FILE_PATH = "input/questions_ro.csv";
+    private final String FILE_USER_RECORDS_PATH = "output/user_data.csv";
+    private boolean isAnswered, isCorrect;
+    private int levelGame = 0;
+    private String option, outputText;
+    private Question selectedQuestion;
     private List<Question> questions, currentLevelList;
-    private static List<PlayerRecords> playerRecordsList;
-    private static Random random = new Random();
-    private static Answer[] currentAnswers = new Answer[4];
-    private static FiftyFiftyHelp fiftyFiftyHelp = new FiftyFiftyHelp(false);    //Help 50/50
-    private static AudienceHelp audienceHelp = new AudienceHelp(false);          //Help audience
-    private static PhoneHelp phoneHelp = new PhoneHelp(false);
-    private static List<Answer> wrongAnswer = new ArrayList<>();
-    private static int[] probabilityFriendCorrectAnswer, probabilityOfCorrectAnswer;
-    private static final List<Integer> guaranteedAmountList = List.of(1000, 100000, 1000000);
-    private static Player player;
+    private List<PlayerRecords> playerRecordsList;
+    private Random random = new Random();
+    private Answer[] currentAnswers = new Answer[4];
+    private FiftyFiftyHelp fiftyFiftyHelp = new FiftyFiftyHelp(false);    //Help 50/50
+    private AudienceHelp audienceHelp = new AudienceHelp(false);          //Help audience
+    private PhoneHelp phoneHelp = new PhoneHelp(false);
+    private List<Answer> wrongAnswer = new ArrayList<>();
+    private int[] probabilityFriendCorrectAnswer, probabilityOfCorrectAnswer;
+    private final List<Integer> guaranteedAmountList = List.of(1000, 100000, 1000000);
+    private Player player;
 
 
-    public Game() {
+    public Game(Player player) {
+        this.player = player;
         LoadingQuestionFromCsv loadingDataFromCsv = new LoadingQuestionFromCsv();
         questions = loadingDataFromCsv.loadFromCsv(FILE_PATH);
         PlayerRecordsCsvLoader playerRecordsCsvLoader = new PlayerRecordsCsvLoader();
@@ -81,14 +82,14 @@ public class Game {
     }
 
 
-   // public static void hjh() {
+    // public static void hjh() {
 
-        // System.out.println("Welcome to the game \"Who wants to be a millionaire\" ");
-        //System.out.println("What is your name?");
-        // player = new Player(scan.nextLine());
-        //System.out.println("Hallo " + player + ". I will explain the rules of the game to you.");
-        // gameRules();
-        //action = scan.nextLine().equalsIgnoreCase("Y");
+    // System.out.println("Welcome to the game \"Who wants to be a millionaire\" ");
+    //System.out.println("What is your name?");
+    // player = new Player(scan.nextLine());
+    //System.out.println("Hallo " + player + ". I will explain the rules of the game to you.");
+    // gameRules();
+    //action = scan.nextLine().equalsIgnoreCase("Y");
 
 
 //    private static void getUserResponse() {
@@ -238,7 +239,7 @@ public class Game {
 //        System.out.println("\n");
 //    }
 
-    }
+}
 
 
 

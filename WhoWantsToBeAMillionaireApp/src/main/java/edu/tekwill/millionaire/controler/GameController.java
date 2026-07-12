@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 
 public class GameController {
@@ -55,20 +56,22 @@ public class GameController {
     private boolean gameActiv = true, isWinner = false;
 
     private Game game;
-    private String defaultButtonStyle, defaultLabelStyle;
+    private String defaultButtonStyle;
+    private Paint defaultLabelStyle;
 
     @FXML
     public void initialize() {
         System.out.println("Game started");
-        defaultButtonStyle = answer1.getStyle();
-        defaultLabelStyle = questionLabel.getStyle();
+
     }
 
     @FXML
     public void startGame(Player player) {
         this.player = player;
-        game = new Game();
+        game = new Game(player);
         playerName.setText(player.getName());
+        defaultButtonStyle = answer1.getStyle();
+        defaultLabelStyle = questionLabel.getTextFill();
         showQuestion();
 
     }
@@ -79,7 +82,7 @@ public class GameController {
 
         Question selectedQuestion = game.displayQuestion();
         questionLabel.setText(String.valueOf(selectedQuestion.getQuestionName()));
-        playerScore.setText(player.getName());
+        playerScore.setText(String.valueOf(player.getScore()));
         levelNumber.setText(String.valueOf(game.getLevelGame()));
 
         Answer[] answers = selectedQuestion.getAnswers();
@@ -96,14 +99,14 @@ public class GameController {
             answer1.setStyle("-fx-background-color: green;");
             questionLabel.setText("Felicitări! Răspunsul este corect!");
             questionLabel.setTextFill(Color.GREEN);
-            pause();
+            GetPause();
 
         } else {
             answer1.setStyle("-fx-background-color: red;");
             questionLabel.setText("Răspunsul este greșit! ");
             questionLabel.setTextFill(Color.RED);
             gameActiv = false;
-            pause();
+            GetPause();
 
         }
 
@@ -117,14 +120,14 @@ public class GameController {
             answer2.setStyle("-fx-background-color: green;");
             questionLabel.setText("Felicitări! Răspunsul este corect!");
             questionLabel.setTextFill(Color.GREEN);
-            pause();
+            GetPause();
 
         } else {
             answer2.setStyle("-fx-background-color: red;");
             questionLabel.setText("Răspunsul este greșit! ");
             questionLabel.setTextFill(Color.RED);
             gameActiv = false;
-            pause();
+            GetPause();
 
         }
 
@@ -137,14 +140,14 @@ public class GameController {
             answer3.setStyle("-fx-background-color: green;");
             questionLabel.setText("Felicitări! Răspunsul este corect!");
             questionLabel.setTextFill(Color.GREEN);
-            pause();
+            GetPause();
 
         } else {
             answer3.setStyle("-fx-background-color: red;");
             questionLabel.setText("Răspunsul este greșit! ");
             questionLabel.setTextFill(Color.RED);
             gameActiv = false;
-            pause();
+            GetPause();
 
         }
 
@@ -157,24 +160,32 @@ public class GameController {
             answer4.setStyle("-fx-background-color: green;");
             questionLabel.setText("Felicitări! Răspunsul este corect!");
             questionLabel.setTextFill(Color.GREEN);
-            pause();
+            GetPause();
 
         } else {
             answer4.setStyle("-fx-background-color: red;");
             questionLabel.setText("Răspunsul este greșit! ");
             questionLabel.setTextFill(Color.RED);
             gameActiv = false;
-            pause();
+            GetPause();
 
         }
 
     }
 
-    private void pause() {
-        PauseTransition pause = new PauseTransition(Duration.seconds(5));
-        if (!gameActiv) {
-            gameOver();
-        } else showQuestion();
+    private void GetPause() {
+        PauseTransition pause = new PauseTransition(Duration.seconds(3));
+        pause.setOnFinished(event -> {
+
+            if (!gameActiv) {
+                gameOver();
+            } else {
+                showQuestion();
+            }
+
+        });
+
+        pause.play();
 
     }
 
@@ -183,7 +194,7 @@ public class GameController {
         answer2.setStyle(defaultButtonStyle);
         answer3.setStyle(defaultButtonStyle);
         answer4.setStyle(defaultButtonStyle);
-        questionLabel.setStyle(defaultLabelStyle);
+        questionLabel.setTextFill(defaultLabelStyle);
     }
 
     private void gameOver() {
@@ -197,7 +208,7 @@ public class GameController {
         if (isWinner) {
             questionLabel.setText("Felicitări! Ați câștigat " + player.getGuaranteedAmount() + " lei");
             questionLabel.setTextFill(Color.GREEN);
-        }else {
+        } else {
             questionLabel.setText("Ne pare rău! Ați dat un răspuns greșit. \n " +
                     "În aceasta joacă ați câștigat " + player.getGuaranteedAmount() + " lei");
             questionLabel.setTextFill(Color.RED);
