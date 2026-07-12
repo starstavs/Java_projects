@@ -1,0 +1,301 @@
+numberOfQuestion;numberOfCategory;question;answer1;answer2;answer3;answer4;correctAnswer;score
+1;1;Care este capitala Franței?;Berlin;Madrid;Paris;Roma;3;100
+2;1;Câte picioare are un păianjen?;6;8;10;12;2;100
+3;1;Câte planete sunt în Sistemul Solar?;7;8;9;10;2;100
+4;1;Care este cel mai mare ocean?;Atlantic;Indian;Pacific;Arctic;3;100
+5;1;Câte zile are un an?;365;360;366;364;1;100
+6;1;Care este cea mai mare țară după suprafață?;Canada;Rusia;SUA;China;2;100
+7;1;Câți cromozomi are omul?;44;46;48;42;2;100
+8;1;Care este cel mai lung fluviu?;Nil;Amazon;Yangtze;Mississippi;2;100
+9;1;Câte minute sunt într-o oră?;50;60;70;100;2;100
+10;1;Care planetă este cea mai apropiată de Soare?;Pământ;Venus;Mercur;Marte;3;100
+11;1;Câte oase are un adult?;206;201;210;180;1;100
+12;1;Cine a scris „Război și pace”?;Pușkin;Tolstoi;Dostoievski;Cehov;2;100
+13;1;Ce gaz respirăm?;Oxigen;Azot;Dioxid de carbon;Hidrogen;1;100
+14;1;Câte secunde sunt într-un minut?;50;60;70;100;2;100
+15;1;Care planetă este numită Planeta Roșie?;Venus;Marte;Jupiter;Saturn;2;100
+16;1;Câte culori are curcubeul?;5;6;7;8;3;100
+17;1;Care este cel mai mare continent?;Europa;Asia;Africa;America;2;100
+18;1;Câte laturi are un triunghi?;3;4;5;6;1;100
+19;1;Care este capitala Germaniei?;Viena;Berlin;Bruxelles;Praga;2;100
+20;1;Câte oceane sunt pe Pământ?;3;4;5;6;3;100
+21;2;Cine a descoperit legea gravitației universale?;Einstein;Newton;Galilei;Tesla;2;200
+22;2;În ce an a început Al Doilea Război Mondial?;1935;1939;1941;1945;2;200
+23;2;Câți dinți are un adult?;28;30;32;34;3;200
+24;2;Ce metal este lichid la temperatura camerei?;Fier;Mercur;Au;Cupru;2;200
+25;2;Care este cea mai adâncă fosă oceanică?;Fosa Marianelor;Fosa Peru;Fosa Japoniei;Fosa Atlantică;1;200
+26;2;Câte continente sunt pe Pământ?;5;6;7;8;3;200
+27;2;Ce transportă oxigenul în sânge?;Leucocitele;Hemoglobina;Plasma;Trombocitele;2;200
+28;2;Cine este autorul tabelului periodic al elementelor?;Mendeleev;Lomonosov;Pasteur;Darwin;1;200
+29;2;Care este capitala Japoniei?;Osaka;Tokyo;Kyoto;Nagoya;2;200
+30;2;Care este cel mai mare deșert din lume?;Sahara;Gobi;Kalahari;Atacama;1;200
+31;2;Câte reprize sunt într-un meci de hochei?;2;3;4;5;2;200
+32;2;Care este organul principal al respirației?;Ficatul;Plămânii;Inima;Rinichii;2;200
+33;2;Cel mai rapid om din lume la 100 m?;Bolt;Powell;Gatlin;Greene;1;200
+34;2;Care grupă de sânge este donator universal?;A;B;AB;O;4;200
+35;2;Câte camere are inima umană?;2;3;4;5;3;200
+36;2;Cine a scris „Hamlet”?;Shakespeare;Goethe;Pușkin;Dante;1;200
+37;2;Ce element are simbolul O?;Oxid;Oxigen;Azot;Carbon;2;200
+38;2;Câte minute durează o repriză de fotbal?;40;45;50;60;2;200
+39;2;Care țară are forma unei cizme?;Grecia;Italia;Spania;Turcia;2;200
+40;2;Care este cea mai apropiată stea de Pământ?;Sirius;Soarele;Proxima;Vega;2;200
+41;3;Ce organ produce insulina?;Ficatul;Pancreasul;Stomacul;Splina;2;300
+42;3;Cine a scris „Crimă și pedeapsă”?;Tolstoi;Dostoievski;Cehov;Gogol;2;300
+43;3;Viteza luminii este aproximativ?;300 000 km/s;150 000 km/s;1 000 000 km/s;30 000 km/s;1;300
+44;3;Care este cel mai lung os din corpul uman?;Radius;Femur;Humerus;Tibie;2;300
+45;3;În ce an s-a destrămat URSS?;1985;1991;1993;2000;2;300
+46;3;Care este cel mai răspândit gaz din atmosferă?;Oxigen;Azot;Dioxid de carbon;Argon;2;300
+47;3;Cine a descoperit America?;Magellan;Columb;Cook;Vespucci;2;300
+48;3;Câte laturi are un hexagon?;5;6;7;8;2;300
+49;3;Care este cea mai mare planetă?;Pământ;Jupiter;Saturn;Neptun;2;300
+50;3;Câți jucători are o echipă de fotbal?;10;11;12;9;2;300
+51;3;Ce studiază biologia?;Planetele;Organismele vii;Reacțiile chimice;Fizica;2;300
+52;3;Cine a scris „Evgheni Oneghin”?;Pușkin;Lermontov;Tolstoi;Gogol;1;300
+53;3;Care este cel mai dur material natural?;Fier;Diamant;Grafit;Sare;2;300
+54;3;Ce țară a câștigat Campionatul Mondial de Fotbal din 2018?;Germania;Franța;Brazilia;Spania;2;300
+55;3;Câte oase are aproximativ craniul uman?;20;22;24;26;2;300
+56;3;Ce proces transformă apa în vapori?;Condensare;Evaporare;Topire;Cristalizare;2;300
+57;3;Cine a formulat teoria relativității?;Newton;Einstein;Galilei;Maxwell;2;300
+58;3;Care este cel mai înalt munte din lume?;K2;Everest;Kangchenjunga;Mont Blanc;2;300
+59;3;Câte minute sunt într-o zi?;1400;1440;1500;1600;2;300
+60;3;Care ocean se află între America și Europa?;Pacific;Atlantic;Indian;Arctic;2;300
+61;4;Ce element are numărul atomic 1?;Heliu;Hidrogen;Oxigen;Azot;2;500
+62;4;Cine a formulat legea gravitației universale?;Newton;Einstein;Galilei;Kepler;1;500
+63;4;Cum se numește procesul de diviziune celulară?;Fotosinteză;Mitoză;Hidroliză;Oxidare;2;500
+64;4;În ce an a început Primul Război Mondial?;1912;1914;1916;1918;2;500
+65;4;Ce gaz este utilizat în fotosinteză?;Oxigen;Dioxid de carbon;Azot;Metan;2;500
+66;4;Câte perechi de coaste are omul?;10;11;12;13;3;500
+67;4;Care este cea mai mare țară din Africa după suprafață?;Egipt;Algeria;Sudan;Nigeria;2;500
+68;4;Ce se măsoară în amperi?;Tensiunea;Curentul electric;Rezistența;Puterea;2;500
+69;4;Cine a scris „Iliada”?;Homer;Virgiliu;Sofocle;Platon;1;500
+70;4;Ce organ filtrează sângele?;Inima;Rinichii;Plămânii;Ficatul;2;500
+71;4;Câte grade are un unghi drept?;45;90;180;360;2;500
+72;4;Care planetă are inele?;Marte;Jupiter;Saturn;Venus;3;500
+73;4;Cum se numește știința care studiază ciupercile?;Botanică;Micologie;Zoologie;Ecologie;2;500
+74;4;Cine a descoperit penicilina?;Pasteur;Fleming;Koch;Mendel;2;500
+75;4;Câți cromozomi are omul?;44;46;48;42;2;500
+76;4;Ce metal este mai ușor decât apa?;Fier;Litiu;Cupru;Plumb;2;500
+77;4;Ce râu traversează Parisul?;Tamisa;Sena;Rin;Dunărea;2;500
+78;4;Câte oceane sunt recunoscute oficial pe Pământ?;3;4;5;6;3;500
+79;4;Ce studiază astronomia?;Animalele;Cosmosul;Chimia;Pământul;2;500
+80;4;Ce vitamină este sintetizată sub acțiunea soarelui?;A;B;C;D;4;500
+81;5;Care este cel mai răspândit element din Univers?;Oxigen;Hidrogen;Carbon;Heliu;2;1000
+82;5;Cum se numește unitatea de măsură a presiunii?;Watt;Pascal;Joule;Newton;2;1000
+83;5;Cine a propus teoria evoluției?;Darwin;Lamarck;Mendel;Linnaeus;1;1000
+84;5;Care grupă de sânge este considerată receptor universal?;O;A;AB;B;3;1000
+85;5;Câte oase are mâna umană?;20;27;30;25;2;1000
+86;5;Ce înseamnă un pH de 7?;Acid;Bază;Neutru;Gaz;3;1000
+87;5;Care oraș a fost capitala Imperiului Roman?;Atena;Roma;Constantinopol;Alexandria;2;1000
+88;5;Ce procent din corpul uman este apă, aproximativ?;30%;50%;60%;80%;3;1000
+89;5;Ce element are simbolul Fe?;Fluor;Fier;Fosfor;Franciu;2;1000
+90;5;Ce studiază genetica?;Galaxiile;Ereditatea;Munții;Vremea;2;1000
+91;5;Cine a scris „Faust”?;Schiller;Goethe;Kafka;Byron;2;1000
+92;5;Câte planete gigant există în Sistemul Solar?;2;3;4;5;3;1000
+93;5;Ce proces eliberează energie în celulă?;Fotosinteză;Respirația celulară;Evaporarea;Difuzia;2;1000
+94;5;Care este capitala Canadei?;Toronto;Ottawa;Montreal;Vancouver;2;1000
+95;5;Ce se măsoară în herți?;Forța;Frecvența;Masa;Presiunea;2;1000
+96;5;Cine a descoperit structura ADN-ului?;Darwin;Watson și Crick;Mendel;Fleming;2;1000
+97;5;Câte vertebre are aproximativ omul?;22;33;40;50;2;1000
+98;5;Care este cel mai rece ocean?;Indian;Arctic;Atlantic;Pacific;2;1000
+99;5;Care țară este leagănul Jocurilor Olimpice?;Italia;Grecia;Egipt;Franța;2;1000
+100;5;Ce este fotosinteza?;Distrugerea celulelor;Producerea hranei de către plante;Respirația;Creșterea animalelor;2;1000
+101;6;Care particulă are sarcină negativă?;Proton;Neutron;Electron;Foton;3;3000
+102;6;Care lege descrie relația dintre forță și accelerație?;Legea lui Ohm;Legea a doua a lui Newton;Legea lui Arhimede;Legea lui Pascal;2;3000
+103;6;Cine a elaborat tabelul periodic al elementelor?;Mendeleev;Dalton;Lavoisier;Boyle;1;3000
+104;6;Cum se numește procesul de dezintegrare a elementelor radioactive?;Difuzie;Disociere;Dezintegrare radioactivă;Condensare;3;3000
+105;6;Câte camere are inima unui pește?;2;3;4;5;1;3000
+106;6;Ce element este necesar pentru respirația celulară?;Azot;Oxigen;Hidrogen;Carbon;2;3000
+107;6;Care este viteza aproximativă a sunetului în aer?;340 m/s;1000 m/s;500 m/s;200 m/s;1;3000
+108;6;Ce studiază termodinamica?;Stelele;Căldura și energia;Animalele;Celulele;2;3000
+109;6;Care este cel mai adânc ocean în medie?;Atlantic;Pacific;Indian;Arctic;2;3000
+110;6;Cine a formulat legea conservării masei?;Lomonosov;Darwin;Newton;Einstein;1;3000
+111;6;Care este cea mai mică unitate a vieții?;Organ;Celulă;Țesut;Sistem;2;3000
+112;6;Ce element stă la baza chimiei organice?;Oxigen;Carbon;Azot;Hidrogen;2;3000
+113;6;Care este înclinarea axei Pământului?;15°;23,5°;30°;45°;2;3000
+114;6;Ce organ este responsabil de vedere?;Ureche;Ochi;Nas;Limbă;2;3000
+115;6;Cine a descoperit principiul lui Arhimede?;Arhimede;Pitagora;Newton;Galilei;1;3000
+116;6;Cum se numește procesul de evaporare a apei de pe suprafața frunzelor?;Fotosinteză;Transpirație;Osmoză;Difuzie;2;3000
+117;6;Câte perechi de nervi cranieni are omul?;10;12;14;16;2;3000
+118;6;Care este cel mai ușor metal?;Litiu;Sodiu;Aluminiu;Magneziu;1;3000
+119;6;Care este cel mai arid continent?;Africa;Australia;Asia;America de Sud;2;3000
+120;6;Ce se măsoară în newtoni?;Masă;Forță;Energie;Presiune;2;3000
+121;7;Ce organit celular este responsabil de sinteza proteinelor?;Lizozom;Ribozom;Nucleu;Mitocondrie;2;5000
+122;7;Ce lege leagă presiunea și volumul unui gaz la temperatură constantă?;Legea lui Ohm;Legea Boyle-Mariotte;Legea lui Newton;Legea lui Arhimede;2;5000
+123;7;Ce element are numărul atomic 8?;Azot;Oxigen;Carbon;Fluor;2;5000
+124;7;Cine a descoperit inducția electromagnetică?;Faraday;Ampère;Ohm;Hertz;1;5000
+125;7;Câte oase are coloana vertebrală umană?;24;33;40;28;2;5000
+126;7;Ce vitamină participă la coagularea sângelui?;A;B;C;K;4;5000
+127;7;Care este cel mai sărat ocean în medie?;Pacific;Atlantic;Indian;Arctic;2;5000
+128;7;Cine a formulat legile eredității?;Mendel;Darwin;Pasteur;Linnaeus;1;5000
+129;7;Cum se numește procesul prin care celula absoarbe apă?;Osmoză;Difuzie;Fotosinteză;Hidroliză;1;5000
+130;7;Care particulă din nucleu nu are sarcină electrică?;Proton;Neutron;Electron;Ion;2;5000
+131;7;Ce metal era folosit istoric în termometre?;Plumb;Mercur;Fier;Aluminiu;2;5000
+132;7;Ce gaz se formează la arderea carbonului?;Oxigen;Monoxid de carbon;Dioxid de carbon;Azot;3;5000
+133;7;Cine a descoperit legea inerției?;Newton;Galilei;Einstein;Kepler;2;5000
+134;7;Care este unitatea de măsură a rezistenței electrice?;Amper;Ohm;Watt;Volt;2;5000
+135;7;Câte camere are inima mamiferelor?;2;3;4;5;3;5000
+136;7;Ce proces stă la baza respirației celulare?;Fotosinteză;Oxidarea glucozei;Evaporare;Difuzie;2;5000
+137;7;Care este cel mai greu element stabil?;Uraniu;Plumb;Plutoniu;Mercur;2;5000
+138;7;Ce se măsoară în pascali?;Forță;Presiune;Energie;Masă;2;5000
+139;7;Care continent are cele mai multe țări?;Asia;Africa;Europa;America de Sud;2;5000
+140;7;Ce proces transformă un lichid în gaz?;Condensare;Evaporare;Sublimare;Cristalizare;2;5000
+141;8;Care lege descrie interacțiunea dintre sarcinile electrice?;Legea lui Ohm;Legea lui Coulomb;Legea lui Faraday;Legea lui Ampère;2;10000
+142;8;Cum se numește structura ADN-ului sub forma unei duble spirale?;Heliox;Dublă spirală;Triplex;Globulă;2;10000
+143;8;Ce element stă la baza proteinelor?;Carbon;Azot;Oxigen;Fosfor;2;10000
+144;8;Cine a descoperit penicilina?;Fleming;Pasteur;Koch;Mendel;1;10000
+145;8;Ce proces are loc în mitocondrii?;Sinteza proteinelor;Producerea energiei;Diviziunea nucleului;Fotosinteza;2;10000
+146;8;Care este cel mai ușor gaz?;Oxigen;Hidrogen;Azot;Heliu;2;10000
+147;8;Câte perechi de nervi spinali are omul?;31;30;33;28;1;10000
+148;8;Cum se numește procesul prin care o substanță solidă trece direct în stare gazoasă?;Evaporare;Sublimare;Condensare;Topire;2;10000
+149;8;Ce element are simbolul Na?;Potasiu;Sodiu;Azot;Neon;2;10000
+150;8;Cine a descoperit structura atomului?;Rutherford;Newton;Bohr;Mendeleev;1;10000
+151;8;Ce organ reglează temperatura corpului?;Ficat;Hipotalamus;Rinichi;Inimă;2;10000
+152;8;Ce proces are loc în timpul diviziunii nucleului?;Meioză;Diviziune nucleară;Fotosinteză;Difuzie;2;10000
+153;8;Ce se măsoară în herți?;Forță;Frecvență;Energie;Masă;2;10000
+154;8;Care este cel mai cald ocean în medie?;Atlantic;Indian;Pacific;Arctic;2;10000
+155;8;Ce element este esențial pentru oase?;Fier;Calciu;Sodiu;Potasiu;2;10000
+156;8;Care este unitatea de măsură a energiei?;Watt;Joule;Newton;Ohm;2;10000
+157;8;Cine a descoperit radioactivitatea?;Becquerel;Rutherford;Faraday;Curie;1;10000
+158;8;Ce proces descrie mișcarea moleculelor?;Difuzie;Inerție;Gravitație;Magnetism;1;10000
+159;8;Ce vitamină este sintetizată de piele?;A;B;C;D;4;10000
+160;8;Câte faze are mitoza?;2;4;6;8;2;10000
+161;9;Care lege descrie radiația corpului negru?;Legea lui Boyle;Legea lui Planck;Legea lui Coulomb;Legea lui Newton;2;20000
+162;9;Ce element are cea mai mare electronegativitate?;Oxigen;Fluor;Azot;Clor;2;20000
+163;9;Ce proces este însoțit de scăderea entropiei?;Evaporare;Cristalizare;Difuzie;Ardere;2;20000
+164;9;Cine a elaborat teoria cuantică?;Planck;Newton;Einstein;Faraday;1;20000
+165;9;Ce tip de legătură există în molecula de apă?;Ionică;Covalentă polară;Metalică;Legătură de hidrogen;2;20000
+166;9;Câți aminoacizi intră în structura proteinelor umane?;10;20;30;40;2;20000
+167;9;Ce organit este responsabil de detoxifierea celulei?;Lizozom;Reticul endoplasmatic neted;Nucleu;Ribozom;2;20000
+168;9;Ce este dezintegrarea beta?;Dezintegrarea nucleului cu emisia unui electron;Topire;Evaporare;Difuzie;1;20000
+169;9;Care lege leagă presiunea și temperatura unui gaz?;Legea lui Charles;Legea lui Gay-Lussac;Legea lui Boyle;Legea lui Ohm;2;20000
+170;9;Cine a descoperit neutronul?;Chadwick;Rutherford;Bohr;Planck;1;20000
+171;9;Care este elementul cel mai abundent în scoarța terestră?;Oxigen;Siliciu;Aluminiu;Fier;1;20000
+172;9;Ce proces are loc în faza luminoasă a fotosintezei?;Sinteza proteinelor;Formarea ATP;Respirație;Hidroliză;2;20000
+173;9;Ce tip de radiație are cea mai mare energie?;Unde radio;Ultravioletă;Radiație gamma;Infraroșie;3;20000
+174;9;Câți neutroni are carbonul-14?;6;7;8;9;3;20000
+175;9;Ce este dezintegrarea izotopică?;Reacție chimică;Transformare nucleară;Topire;Difuzie;2;20000
+176;9;Ce element este utilizat în reactoarele nucleare?;Uraniu;Fier;Cupru;Plumb;1;20000
+177;9;Cum se numește procesul de dublare a ADN-ului?;Transcripție;Replicare;Translație;Mutație;2;20000
+178;9;Care constantă este asociată cu viteza luminii?;Constanta lui Planck;Constanta lui Einstein;Constanta lui Boltzmann;Constanta lui Avogadro;2;20000
+179;9;Care ocean are cea mai mare adâncime?;Atlantic;Pacific;Indian;Arctic;2;20000
+180;9;Ce proces stă la baza funcționării laserului?;Evaporare;Emisie stimulată;Difuzie;Condensare;2;20000
+181;10;Care lege descrie relația dintre energie și masă?;Legea lui Newton;Ecuația lui Einstein (E=mc²);Legea lui Planck;Modelul lui Bohr;2;50000
+182;10;Ce element are cea mai mare masă atomică dintre elementele stabile?;Plumb;Bismut;Uraniu;Mercur;2;50000
+183;10;Ce proces stă la baza reacției nucleare în lanț?;Ionizare;Fisiune nucleară;Fuziune nucleară;Difuzie;2;50000
+184;10;Ce proteină transportă oxigenul în sânge?;Albumină;Hemoglobină;Insulină;Fibrină;2;50000
+185;10;Care lege descrie presiunea lichidului în funcție de adâncime?;Legea lui Pascal;Legea lui Arhimede;Legea lui Ohm;Legea lui Newton;1;50000
+186;10;Câte tipuri de nucleotide există în ADN?;2;3;4;5;3;50000
+187;10;Ce proces are loc în stele precum Soarele?;Ardere chimică;Fuziune termonucleară;Topire;Oxidare;2;50000
+188;10;Ce se întâmplă la dezintegrarea alfa?;Numărul de protoni scade cu 2;Masa crește;Elementul devine gaz;Nu se schimbă nimic;1;50000
+189;10;Cine a formulat principiul incertitudinii?;Bohr;Heisenberg;Planck;Einstein;2;50000
+190;10;Ce organ reglează nivelul glucozei din sânge?;Ficat;Pancreas;Rinichi;Inimă;2;50000
+191;10;Ce proces descrie trecerea electronului între nivelurile energetice?;Difuzie;Tranziție cuantică;Evaporare;Reacție chimică;2;50000
+192;10;Care gaz are cea mai mică densitate?;Azot;Hidrogen;Oxigen;Heliu;2;50000
+193;10;Câți cromozomi au celulele sexuale umane?;23;46;22;44;1;50000
+194;10;Ce proces duce la formarea acizilor în atmosferă?;Oxidarea SO₂;Evaporarea apei;Fotosinteză;Condensare;1;50000
+195;10;Care lege leagă intensitatea curentului de tensiune?;Legea lui Coulomb;Legea lui Ohm;Legea lui Ampère;Legea lui Faraday;2;50000
+196;10;Ce element este utilizat în reacțiile de fuziune termonucleară?;Uraniu;Hidrogen (deuteriu/tritiu);Fier;Plumb;2;50000
+197;10;Ce proces are loc la formarea ARN-ului mesager (mARN)?;Replicare;Transcripție;Translație;Mutație;2;50000
+198;10;Care este cel mai adânc ocean?;Atlantic;Pacific;Indian;Arctic;2;50000
+199;10;Care lege descrie mișcarea planetelor?;Legea lui Newton;Legile lui Kepler;Legea lui Galilei;Teoria lui Einstein;2;50000
+200;10;Ce proces este izoterm?;Proces la temperatură constantă;Proces la presiune constantă;Proces cu masă variabilă;Proces de încălzire;1;50000
+201;11;Ce proces descrie fisiunea nucleului de uraniu?;Dezintegrare alfa;Fisiune nucleară;Fotosinteză;Difuzie;2;100000
+202;11;Ce element are 92 de protoni?;Plutoniu;Uraniu;Toriu;Radiu;2;100000
+203;11;Cum se numește procesul de fuziune a nucleelor ușoare?;Radioactivitate;Fuziune termonucleară;Disociere;Ionizare;2;100000
+204;11;Ce particulă mediază interacțiunea electromagnetică?;Gluon;Foton;Bozonul Higgs;Neutrin;2;100000
+205;11;Care lege descrie spectrul radiației corpului negru?;Legea lui Planck;Legea lui Boyle;Legea lui Coulomb;Legea lui Ohm;1;100000
+206;11;Câte faze are ciclul celular?;2;3;4;5;3;100000
+207;11;Ce proces are loc în ribozomi?;Sinteza proteinelor;Respirație;Fotosinteză;Diviziunea nucleului;1;100000
+208;11;Care este cel mai greu element natural stabil?;Bismut;Uraniu;Plumb;Mercur;1;100000
+209;11;Ce proces descrie dezintegrarea neutronului?;Dezintegrare beta;Dezintegrare alfa;Radiație gamma;Fotosinteză;1;100000
+210;11;Cine a formulat ecuațiile câmpului electromagnetic?;Maxwell;Newton;Kepler;Arhimede;1;100000
+211;11;Câți atomi de carbon conține glucoza?;4;5;6;7;3;100000
+212;11;Ce proces stă la baza răspunsului imunitar?;Fotosinteză;Reacția antigen-anticorp;Difuzie;Oxidare;2;100000
+213;11;Ce organit conține propriul ADN?;Ribozom;Mitocondrie;Lizozom;Aparatul Golgi;2;100000
+214;11;Care lege leagă frecvența și energia fotonului?;Legea lui Planck;Legea lui Ohm;Legea lui Arhimede;Legea lui Newton;1;100000
+215;11;Ce este homeostazia?;Distrugerea celulelor;Menținerea echilibrului intern al organismului;Diviziunea celulară;Evaporare;2;100000
+216;11;Ce element este utilizat în semiconductori?;Siliciu;Fier;Cupru;Au;1;100000
+217;11;Ce proces are loc în meioză?;Dublarea celulelor;Formarea gameților;Fotosinteză;Oxidare;2;100000
+218;11;Care lege descrie conservarea energiei?;Prima lege a termodinamicii;Legea lui Ohm;Legea lui Newton;Legea lui Arhimede;1;100000
+219;11;Care tip de stele sunt cele mai fierbinți?;Pitice roșii;Giganți albaștri;Stele galbene;Pitice albe;2;100000
+220;11;Ce proces contribuie la formarea reliefului Pământului?;Fotosinteză;Tectonica plăcilor;Evaporare;Difuzie;2;100000
+221;12;Ce element are cea mai mare densitate?;Osmiu;Uraniu;Plumb;Platină;1;150000
+222;12;Ce descrie încurcarea cuantică?;Mecanica clasică;Corelarea stărilor cuantice;Gravitație;Transfer de căldură;2;150000
+223;12;Care lege explică efectul fotoelectric?;Legea lui Einstein;Legea lui Newton;Legea lui Ohm;Legea lui Coulomb;1;150000
+224;12;Ce proces are loc în timpul splicingului ARN?;Îndepărtarea intronilor;Diviziunea nucleului;Fotosinteză;Oxidare;1;150000
+225;12;Ce element stă la baza vieții organice?;Azot;Carbon;Oxigen;Hidrogen;2;150000
+226;12;Ce proces are loc în faza întunecată a fotosintezei?;Sinteza glucozei;Eliberarea oxigenului;Respirație;Evaporare;1;150000
+227;12;Care lege descrie distribuția moleculelor după energie?;Legea lui Boltzmann;Legea lui Ohm;Legea lui Newton;Legea lui Planck;1;150000
+228;12;Ce organ reglează sistemul endocrin?;Hipofiză;Ficat;Inimă;Rinichi;1;150000
+229;12;Ce este convecția?;Transferul căldurii prin mișcarea fluidelor;Evaporare;Difuzie;Compresie;1;150000
+230;12;Ce element este utilizat în bateriile nucleare?;Plutoniu;Uraniu;Plumb;Fier;1;150000
+231;12;Ce proces are loc în timpul crossing-over-ului?;Schimbul de segmente cromozomiale;Diviziunea celulară;Fotosinteză;Oxidare;1;150000
+232;12;Care lege descrie mișcarea corpurilor în sisteme neinerțiale?;Legea lui Newton;Teoria lui Einstein;Forța Coriolis;Legea lui Pascal;3;150000
+233;12;Ce proces contribuie la îmbătrânirea celulelor?;Scurtarea telomerelor;Fotosinteză;Difuzie;Hidroliză;1;150000
+234;12;Care este cel mai abundent element din Univers?;Heliu;Hidrogen;Oxigen;Carbon;2;150000
+235;12;Ce se întâmplă în timpul dezintegrării beta-plus (β⁺)?;Protonul se transformă în neutron;Neutronul dispare;Evaporare;Difuzie;1;150000
+236;12;Care lege descrie entropia?;A doua lege a termodinamicii;Legea lui Ohm;Legea lui Newton;Legea lui Arhimede;1;150000
+237;12;Ce proces stă la baza memoriei?;Plasticitatea sinaptică;Fotosinteză;Evaporare;Difuzie;1;150000
+238;12;Ce element a fost utilizat istoric în supraconductori?;Cupru;Litiu;Mercur;Fier;3;150000
+239;12;Ce proces are loc în timpul transcripției?;Sinteza ARN;Sinteza ADN;Diviziunea celulară;Oxidare;1;150000
+240;12;Ce teorie descrie gravitația la viteze și mase mari?;Teoria relativității generale;Legea lui Newton;Legea lui Ohm;Legea lui Coulomb;1;150000
+241;13;Ce proces descrie descompunerea ATP?;Hidroliza cu eliberare de energie;Fotosinteză;Difuzie;Oxidare;1;250000
+242;13;Care element are cea mai mare masă atomică dintre elementele naturale stabile?;Plumb;Bismut;Uraniu;Toriu;2;250000
+243;13;Care lege descrie conservarea impulsului?;A doua lege a lui Newton;Legea conservării impulsului;Legea lui Ohm;Legea lui Pascal;2;250000
+244;13;Ce proces are loc în telofaza mitozei?;Dezintegrarea nucleului;Formarea învelișurilor nucleare;Fotosinteză;Replicarea ADN-ului;2;250000
+245;13;Ce tip de legătură se formează între moleculele de apă?;Covalentă;Legătură de hidrogen;Ionică;Metalică;2;250000
+246;13;Ce reprezintă coeficientul respirator?;Raportul dintre CO₂ și O₂;Diviziunea celulară;Evaporarea apei;Difuzia gazelor;1;250000
+247;13;Care element este principalul component al moleculelor organice, pe lângă carbon?;Azot;Oxigen;Hidrogen;Toate cele enumerate;4;250000
+248;13;Ce proces are loc în timpul crossing-over-ului în meioza I?;Schimb de material genetic;Diviziunea nucleului;Fotosinteză;Replicare;1;250000
+249;13;Care lege descrie comportamentul gazului ideal?;Legea Boyle-Mariotte;Ecuația Clapeyron-Mendeleev;Legea lui Newton;Legea lui Ohm;2;250000
+250;13;Ce proces stă la baza memoriei imunologice?;Anticorpii rămân după infecție;Evaporare;Difuzie;Fotosinteză;1;250000
+251;13;Ce organit este responsabil de modificarea și împachetarea proteinelor?;Ribozom;Aparatul Golgi;Nucleu;Lizozom;2;250000
+252;13;Ce este osmoreglarea?;Controlul echilibrului apei și al sărurilor;Diviziunea celulară;Oxidare;Fotosinteză;1;250000
+253;13;Ce element este utilizat în fuziunea termonucleară din Soare?;Heliu;Hidrogen;Oxigen;Carbon;2;250000
+254;13;Ce proces are loc în recombinarea ADN-ului?;Rearanjarea materialului genetic;Evaporare;Difuzie;Hidroliză;1;250000
+255;13;Care lege descrie radiația corpului negru?;Legea lui Planck;Legea lui Newton;Legea lui Ohm;Legea lui Coulomb;1;250000
+256;13;Ce proces are loc în faza G1 a ciclului celular?;Creșterea celulei;Diviziunea nucleului;Fotosinteză;Meioză;1;250000
+257;13;Ce element are configurația electronică 1s² 2s² 2p⁴?;Azot;Oxigen;Carbon;Fluor;2;250000
+258;13;Ce proces duce la formarea ATP în mitocondrii?;Fosforilare oxidativă;Fotosinteză;Evaporare;Difuzie;1;250000
+259;13;Care lege descrie mișcarea planetelor pe orbite eliptice?;Legea lui Newton;Legile lui Kepler;Legea lui Galilei;Teoria lui Einstein;2;250000
+260;13;Ce este apoptoza?;Moarte celulară programată;Diviziune celulară;Creștere;Fotosinteză;1;250000
+261;14;Ce proces descrie trecerea electronilor într-o stare excitată?;Ionizare;Excitație cuantică;Difuzie;Hidroliză;2;500000
+262;14;Ce element are cea mai mare electronegativitate?;Clor;Fluor;Oxigen;Azot;2;500000
+263;14;Care lege descrie liniile spectrale ale hidrogenului?;Modelul lui Bohr;Legea lui Newton;Legea lui Ohm;Legea lui Arhimede;1;500000
+264;14;Ce proces stă la baza reacției PCR?;Amplificarea ADN-ului;Fotosinteză;Evaporare;Difuzie;1;500000
+265;14;Ce proteină formează structura mușchilor?;Colagen;Actină și miozină;Insulină;Hemoglobină;2;500000
+266;14;Ce proces are loc în faza S a ciclului celular?;Sinteza ADN-ului;Diviziunea nucleului;Fotosinteză;Apoptoză;1;500000
+267;14;Care lege descrie statistica Fermi-Dirac?;Statistica cuantică a fermionilor;Gravitație;Transfer de căldură;Electroliză;1;500000
+268;14;Ce este translația?;Sinteza proteinelor pe baza ARNm;Sinteza ADN-ului;Diviziune celulară;Evaporare;1;500000
+269;14;Ce element este baza semiconductorilor?;Germaniu;Siliciu;Fier;Cupru;2;500000
+270;14;Ce proces are loc în dezintegrarea izotopică?;Transformarea nucleului;Evaporare;Difuzie;Compresie;1;500000
+271;14;Care lege descrie cuantificarea energiei?;Legea lui Planck;Legea lui Ohm;Legea lui Coulomb;Legea lui Newton;1;500000
+272;14;Ce proces este responsabil de diferențierea celulară?;Specializarea celulelor;Evaporare;Diviziune;Fotosinteză;1;500000
+273;14;Care este elementul cel mai abundent în scoarța terestră?;Oxigen;Siliciu;Aluminiu;Fier;1;500000
+274;14;Ce proces are loc în fermentație?;Descompunerea glucozei în absența oxigenului;Fotosinteză;Evaporare;Difuzie;1;500000
+275;14;Care lege descrie fotonii ca fiind cuante ale luminii?;Legea lui Einstein;Legea lui Newton;Legea lui Ohm;Legea lui Arhimede;1;500000
+276;14;Ce proces are loc în faza G2?;Pregătirea pentru diviziune;Fotosinteză;Evaporare;Difuzie;1;500000
+277;14;Ce element are cel mai mare număr de izotopi?;Uraniu;Plumb;Oxigen;Azot;1;500000
+278;14;Ce proces este asociat cu expresia genelor?;Sinteza proteinelor;Evaporare;Difuzie;Topire;1;500000
+279;14;Care lege descrie echilibrul termodinamic?;Legea zero a termodinamicii;Legea lui Ohm;Legea lui Coulomb;Legea lui Newton;1;500000
+280;14;Ce proces descrie ruperea spontană a simetriei în sistemele cuantice?;Decoerență;Rupere spontană a simetriei;Difuzie;Ionizare;2;500000
+281;15;Care lege descrie legătura dintre entropie și informație?;Legea lui Boltzmann;Teoria informației a lui Shannon;Legea lui Newton;Legea lui Ohm;2;1000000
+282;15;Ce proces stă la baza tehnologiei CRISPR?;Editarea genomului;Fotosinteză;Evaporare;Difuzie;1;1000000
+283;15;Ce element are cea mai mare energie de ionizare?;Neon;Fluor;Heliu;Azot;3;1000000
+284;15;Ce descrie superpoziția cuantică?;Existența simultană în mai multe stări;Evaporare;Diviziune celulară;Gravitație;1;1000000
+285;15;Ce teorie descrie interacțiunea bosonului Higgs?;Modelul Standard;Legea lui Newton;Legea lui Ohm;Legile lui Kepler;1;1000000
+286;15;Ce proces are loc în timpul emisiei de neutrini în stele?;Reacții nucleare;Fotosinteză;Difuzie;Evaporare;1;1000000
+287;15;Care este cel mai stabil element transuranian?;Plutoniu;Curiu;Lawrenciu;Neptuniu;1;1000000
+288;15;Ce descrie colapsul funcției de undă?;Măsurarea unui sistem cuantic;Evaporare;Diviziune celulară;Hidroliză;1;1000000
+289;15;Ce teorie descrie modelul inflaționist al Universului?;Teoria inflației cosmice;Legea lui Newton;Legea lui Ohm;Legea lui Pascal;1;1000000
+290;15;Ce are loc în timpul anihilării particulelor?;Transformarea în energie;Evaporare;Difuzie;Diviziune celulară;1;1000000
+291;15;Ce are densitatea nucleară cea mai mare?;Uraniu;Materie neutronică;Plumb;Fier;2;1000000
+292;15;Ce descrie încurcarea cuantică?;Corelarea stărilor la distanță;Evaporare;Difuzie;Gravitație;1;1000000
+293;15;Ce teorie unifică interacțiunea electromagnetică și interacțiunea slabă?;Teoria electroslabă;Legea lui Newton;Legea lui Ohm;Legile lui Kepler;1;1000000
+294;15;Ce proces stă la baza apariției vieții?;Evoluția chimică;Evaporare;Difuzie;Hidroliză;1;1000000
+295;15;Ce element este utilizat în reacțiile de sinteză ale nucleelor supergrele?;Uraniu;Plumb;Fier;Oxigen;2;1000000
+296;15;Ce descrie principiul holografic?;Conservarea informației pe limita sistemului;Evaporare;Difuzie;Diviziune celulară;1;1000000
+297;15;Care lege descrie termodinamica găurilor negre?;Legea Bekenstein-Hawking;Legea lui Newton;Legea lui Ohm;Legea lui Coulomb;1;1000000
+298;15;Ce proces este asociat cu fluctuațiile vidului?;Apariția particulelor virtuale;Evaporare;Difuzie;Hidroliză;1;1000000
+299;15;Ce concept descrie interpretarea lumilor multiple?;Ramificarea cuantică a realităților;Gravitație;Transfer de căldură;Oxidare;1;1000000
+300;15;Ce principiu fizic interzice existența a doi fermioni în aceeași stare cuantică?;Principiul lui Pauli;Principiul incertitudinii;Principiul superpoziției;Principiul corespondenței;1;1000000
