@@ -10,6 +10,7 @@ import edu.tekwill.millionaire.model.Answer;
 import edu.tekwill.millionaire.model.Question;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -79,6 +80,12 @@ public class Game {
             }
         }
         return isCorrect;
+    }
+
+    public List<Answer> getFiftyFifty() {
+        wrongAnswer = fiftyFiftyHelp.getHelp(selectedQuestion);
+        if (wrongAnswer.isEmpty()) return Collections.emptyList();
+        return wrongAnswer;
     }
 
 

@@ -13,6 +13,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 
+import java.util.List;
+
+
 public class GameController {
 
     @FXML
@@ -58,11 +61,13 @@ public class GameController {
     private Game game;
     private String defaultButtonStyle;
     private Paint defaultLabelStyle;
+    private Button[] answerButtons = {answer1, answer2, answer3, answer4};
+    private Answer[] answers;
 
     @FXML
     public void initialize() {
         System.out.println("Game started");
-
+        answerButtons = new Button[]{answer1, answer2, answer3, answer4};
     }
 
     @FXML
@@ -72,6 +77,7 @@ public class GameController {
         playerName.setText(player.getName());
         defaultButtonStyle = answer1.getStyle();
         defaultLabelStyle = questionLabel.getTextFill();
+
         showQuestion();
 
     }
@@ -85,7 +91,7 @@ public class GameController {
         playerScore.setText(String.valueOf(player.getScore()));
         levelNumber.setText(String.valueOf(game.getLevelGame()));
 
-        Answer[] answers = selectedQuestion.getAnswers();
+        answers = selectedQuestion.getAnswers();
         answer1.setText(answers[0].getAnswer());
         answer2.setText(answers[1].getAnswer());
         answer3.setText(answers[2].getAnswer());
@@ -173,6 +179,31 @@ public class GameController {
 
     }
 
+    @FXML
+    private void getHelpFiftyFifty() {
+        List<Answer> wrongAnswer = game.getFiftyFifty();
+        if (wrongAnswer.size() > 0) {
+            System.out.println(wrongAnswer.size());
+            System.out.println(answers.length);
+            for (int i = 0; i < answers.length; i++) {
+                if (!answers[i].isVisible()) {
+                    answerButtons[i].setVisible(false);
+                    helpFiftyFifty.setDisable(true);
+                }
+            }
+        }
+    }
+
+    @FXML
+    private void getHelpPhone() {
+
+    }
+
+    @FXML
+    private void getHelpAudience() {
+
+    }
+
     private void GetPause() {
         PauseTransition pause = new PauseTransition(Duration.seconds(3));
         pause.setOnFinished(event -> {
@@ -195,6 +226,10 @@ public class GameController {
         answer3.setStyle(defaultButtonStyle);
         answer4.setStyle(defaultButtonStyle);
         questionLabel.setTextFill(defaultLabelStyle);
+        answer1.setVisible(true);
+        answer2.setVisible(true);
+        answer3.setVisible(true);
+        answer4.setVisible(true);
     }
 
     private void gameOver() {
