@@ -88,163 +88,35 @@ public class Game {
         return wrongAnswer;
     }
 
+    public String[] getPhoneHelp() {
+        probabilityFriendCorrectAnswer = phoneHelp.getHelp(selectedQuestion);
+        if (probabilityFriendCorrectAnswer.length == 0) {
+            return new String[0];
+        }
 
-    // public static void hjh() {
+        String[] friendAnswer = new String[4];
+        for (int i = 0; i < probabilityFriendCorrectAnswer.length; i++) {
+            System.out.println();
+            friendAnswer[i] = getFriendAnswer(probabilityFriendCorrectAnswer[i]);
+        }
+        return friendAnswer;
+    }
 
-    // System.out.println("Welcome to the game \"Who wants to be a millionaire\" ");
-    //System.out.println("What is your name?");
-    // player = new Player(scan.nextLine());
-    //System.out.println("Hallo " + player + ". I will explain the rules of the game to you.");
-    // gameRules();
-    //action = scan.nextLine().equalsIgnoreCase("Y");
+    public int[] getAudienceHelp() {
+        probabilityOfCorrectAnswer = audienceHelp.getHelp(selectedQuestion);
+        if (probabilityOfCorrectAnswer.length == 0) {
+            return new int[0];
+        }
+          return probabilityOfCorrectAnswer;
+    }
 
+    private static String getFriendAnswer(int friendCorrectAnswer) {
 
-//    private static void getUserResponse() {
-//        while (true) {
-//            option = scan.nextLine();
-//            switch (option.toLowerCase()) {
-//                case "a" -> {
-//                    isAnswered = true;
-//                    isCorrect = selectedQuestion.getCorrectAnswer(0);
-//                }
-//                case "b" -> {
-//                    isAnswered = true;
-//                    isCorrect = selectedQuestion.getCorrectAnswer(1);
-//                }
-//                case "c" -> {
-//                    isAnswered = true;
-//                    isCorrect = selectedQuestion.getCorrectAnswer(2);
-//                }
-//                case "d" -> {
-//                    isAnswered = true;
-//                    isCorrect = selectedQuestion.getCorrectAnswer(3);
-//                }
-//                case "f" -> {
-//                    wrongAnswer = fiftyFiftyHelp.getHelp(selectedQuestion);
-//
-//                    if (wrongAnswer.isEmpty()) {
-//                        System.out.println("You have already used this hint.");
-//                        continue;
-//                    }
-//
-//                    break;
-//                }
-//                case "p" -> {
-//                    probabilityFriendCorrectAnswer = phoneHelp.getHelp(selectedQuestion);
-//                    if (probabilityFriendCorrectAnswer.length == 0) {
-//                        System.out.println("You have already used this hint.");
-//                        continue;
-//                    }
-//                    break;
-//                }
-//                case "s" -> {
-//                    probabilityOfCorrectAnswer = audienceHelp.getHelp(selectedQuestion);
-//                    if (probabilityOfCorrectAnswer.length == 0) {
-//                        System.out.println("You have already used this hint.");
-//                        continue;
-//                    }
-//                    break;
-//                }
-//
-//                default -> {
-//                    textOutput("You pressed the wrong button out of nervousness. :)");
-//                    textOutput("Come on, let's try one more time.");
-//                    continue;
-//                }
-//
-//            }
-//            break;
-//        }
-//        if (isAnswered) {
-//            if (isCorrect) {
-//                player.setScore(selectedQuestion.getQuestionScore());
-//                textOutput("Congratulations, you gave the correct answer, which earned you " + selectedQuestion.getQuestionScore() + " lei.");
-//                if (guaranteedAmountList.contains(selectedQuestion.getQuestionScore())) {
-//                    player.setGuaranteedAmount(selectedQuestion.getQuestionScore());
-//                    textOutput("This is your guaranteed amount - " + player.getGuaranteedAmount() + " lei.");
-//                }
-//
-//            }
-//        }
-//
-//    }
-//
-//
-//    private static void displayAnswer() {
-//
-//        currentAnswers = selectedQuestion.getAnswers();
-//
-//        for (int i = 0; i < currentAnswers.length; i++) {
-//            outputText = "";
-//            outputText += currentAnswers[i].getAnswerOrder().getOrderLetter() + " ";
-//            if (!currentAnswers[i].isVisible()) {
-//                outputText += "\u001B[9m";
-//            }
-//            outputText += currentAnswers[i].getAnswer();
-//
-//            if (!currentAnswers[i].isVisible()) {
-//                outputText += "\u001B[0m";
-//            }
-//
-//            if (probabilityFriendCorrectAnswer != null && probabilityFriendCorrectAnswer.length > 0) {
-//                outputText += "-- A friend's reply: \"" + getFriendAnswer(probabilityFriendCorrectAnswer[i]) + "\"  ";
-//            }
-//
-//            if (probabilityOfCorrectAnswer != null && probabilityOfCorrectAnswer.length > 0) {
-//                outputText += "  ---Audience choice is " + probabilityOfCorrectAnswer[i] + "%";
-//            }
-//            textOutput(outputText);
-//        }
-//    }
-//
-//    private static void displayHelp() {
-//        textOutput("------Help------");
-//        textOutput(fiftyFiftyHelp + " | " + phoneHelp + " | " + audienceHelp);
-//    }
-//
-//
-//    private static String getFriendAnswer(int friendCorrectAnswer) {
-//
-//        if (friendCorrectAnswer < 20) return "Unlikely";
-//        if (friendCorrectAnswer >= 20 & friendCorrectAnswer < 45) return "I doubt";
-//        if (friendCorrectAnswer >= 45 & friendCorrectAnswer < 75) return "I think... maybe this one?";
-//        return "I think this is the correct answer.";
-//    }
-//
-//
-////
-//
-//    //Display game rules
-//    private static void gameRules() {
-//        System.out.println("\n");
-//        textOutput("You will face 15 questions.\n" +
-//                "A correct answer earns you a certain number of points,\n" +
-//                "depending on the difficulty of the question. \n" +
-//                "If you answer a question incorrectly, the game ends. \n" +
-//                "You have three lifelines: \n" +
-//                "1. \"50/50\" — which eliminates two incorrect answer choices; \n" +
-//                "2. \"Phone-a-Friend\" — you may consult a friend for advice, for which you have exactly one minute. \n" +
-//                "3. \"Ask the Audience\" — to gauge the opinion of those present; \n" +
-//                "The game also features two guaranteed sums: 1,000 lei and 100,000 lei. \n" +
-//                "In the event of an incorrect answer, \n" +
-//                "you will receive the amount corresponding to your last reached safety net. \n\n" +
-//                "I wish you the best of luck.\n\n" +
-//                "You are ready(Y/N)");
-//
-//    }
-//
-//    //Print the text with pause
-//    private static void textOutput(String text) {
-//        for (int i = 0; i < text.length(); i++) {
-//            System.out.print(text.charAt(i));
-//            try {
-//                Thread.sleep(10);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        System.out.println("\n");
-//    }
+        if (friendCorrectAnswer < 20) return "Este răspuns greșit.";
+        if (friendCorrectAnswer >= 20 & friendCorrectAnswer < 45) return "Nu cred, că este corect.";
+        if (friendCorrectAnswer >= 45 & friendCorrectAnswer < 65) return "Posibil să fie răspuns corect.";
+        return "Eu sunt convis că acest răspuns este corect.";
+    }
 
 }
 

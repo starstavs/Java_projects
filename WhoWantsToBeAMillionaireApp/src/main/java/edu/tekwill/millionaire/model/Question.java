@@ -10,7 +10,7 @@ public class Question {
     private Answer[] wrongAnswer = new Answer[4];
 
 
-   public Question(int questionLevel, int questionNumber, String questionName, Answer[] answers, int questionScore) {
+    public Question(int questionLevel, int questionNumber, String questionName, Answer[] answers, int questionScore) {
         this.questionLevel = questionLevel;
         this.questionNumber = questionNumber;
         this.questionName = questionName;
@@ -44,6 +44,15 @@ public class Question {
     public boolean getCorrectAnswer(int selectedAnswer) {
 
         return answers[selectedAnswer].isCorrect();
+    }
+
+    public Answer getCorrectAnswer() {
+        for (Answer answer : answers) {
+            if (answer.isCorrect()) {
+                return answer;
+            }
+        }
+        return null;
     }
 
     public int getCorrectAnswerIndex() {

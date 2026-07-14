@@ -1,16 +1,22 @@
 package edu.tekwill.millionaire.controler;
 
+import edu.tekwill.millionaire.Main;
 import edu.tekwill.millionaire.game.Game;
 import edu.tekwill.millionaire.model.Answer;
 import edu.tekwill.millionaire.model.Player;
 import edu.tekwill.millionaire.model.Question;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.util.List;
@@ -63,6 +69,9 @@ public class GameController {
     private Paint defaultLabelStyle;
     private Button[] answerButtons = {answer1, answer2, answer3, answer4};
     private Answer[] answers;
+    private Question selectedQuestion;
+    private String[] friendAnswer;
+    private int[] audienceHelp;
 
     @FXML
     public void initialize() {
@@ -86,16 +95,16 @@ public class GameController {
     public void showQuestion() {
         setDefaultStyle();
 
-        Question selectedQuestion = game.displayQuestion();
+        selectedQuestion = game.displayQuestion();
         questionLabel.setText(String.valueOf(selectedQuestion.getQuestionName()));
         playerScore.setText(String.valueOf(player.getScore()));
         levelNumber.setText(String.valueOf(game.getLevelGame()));
 
         answers = selectedQuestion.getAnswers();
-        answer1.setText(answers[0].getAnswer());
-        answer2.setText(answers[1].getAnswer());
-        answer3.setText(answers[2].getAnswer());
-        answer4.setText(answers[3].getAnswer());
+        answer1.setText(answers[0].getAnswerOrder().getOrderLetter() + ") " + answers[0].getAnswer());
+        answer2.setText(answers[1].getAnswerOrder().getOrderLetter() + ") " + answers[1].getAnswer());
+        answer3.setText(answers[2].getAnswerOrder().getOrderLetter() + ") " + answers[2].getAnswer());
+        answer4.setText(answers[3].getAnswerOrder().getOrderLetter() + ") " + answers[3].getAnswer());
     }
 
 
@@ -109,10 +118,7 @@ public class GameController {
 
         } else {
             answer1.setStyle("-fx-background-color: red;");
-            questionLabel.setText("Răspunsul este greșit! ");
-            questionLabel.setTextFill(Color.RED);
-            gameActiv = false;
-            GetPause();
+            wrongAnswer();
 
         }
 
@@ -124,16 +130,14 @@ public class GameController {
     protected void checkAnswer2() {
         if (game.getCorrectAnswer(1)) {
             answer2.setStyle("-fx-background-color: green;");
-            questionLabel.setText("Felicitări! Răspunsul este corect!");
+            questionLabel.setText("Felicitări! Răspunsul este corect!\n");
+
             questionLabel.setTextFill(Color.GREEN);
             GetPause();
 
         } else {
             answer2.setStyle("-fx-background-color: red;");
-            questionLabel.setText("Răspunsul este greșit! ");
-            questionLabel.setTextFill(Color.RED);
-            gameActiv = false;
-            GetPause();
+            wrongAnswer();
 
         }
 
@@ -150,10 +154,7 @@ public class GameController {
 
         } else {
             answer3.setStyle("-fx-background-color: red;");
-            questionLabel.setText("Răspunsul este greșit! ");
-            questionLabel.setTextFill(Color.RED);
-            gameActiv = false;
-            GetPause();
+            wrongAnswer();
 
         }
 
@@ -170,10 +171,7 @@ public class GameController {
 
         } else {
             answer4.setStyle("-fx-background-color: red;");
-            questionLabel.setText("Răspunsul este greșit! ");
-            questionLabel.setTextFill(Color.RED);
-            gameActiv = false;
-            GetPause();
+            wrongAnswer();
 
         }
 
@@ -196,12 +194,16 @@ public class GameController {
 
     @FXML
     private void getHelpPhone() {
-
+        friendAnswer = game.getPhoneHelp();
+        showPhoneHelp();
+        helpFriend.setDisable(true);
     }
 
     @FXML
     private void getHelpAudience() {
-
+        audienceHelp = game.getAudienceHelp();
+        showAudienceHelp();
+        helpAudience.setDisable(true);
     }
 
     private void GetPause() {
@@ -232,6 +234,46 @@ public class GameController {
         answer4.setVisible(true);
     }
 
+    private void wrongAnswer() {
+        questionLabel.setText("Răspunsul este greșit!\n" +
+                "Răspunsul corect este \"" + (selectedQuestion.getCorrectAnswer().getAnswer()) + "\"\n");
+        questionLabel.setTextFill(Color.RED);
+        answerButtons[selectedQuestion.getCorrectAnswerIndex()].setStyle("-fx-background-color: green;");
+        gameActiv = false;
+        GetPause();
+    }
+
+
+    public void showPhoneHelp() {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("help-view.fxml"));
+            Parent root = loader.load();
+            HelpController controller = loader.getController();
+            controller.setHelpDataFriend(answers, friendAnswer);
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void showAudienceHelp() {
+        try {
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("help-view.fxml"));
+            Parent root = loader.load();
+            HelpController controller = loader.getController();
+            controller.setHelpDataAudience(answers, audienceHelp);
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private void gameOver() {
         answer1.setVisible(false);
         answer2.setVisible(false);
@@ -244,7 +286,7 @@ public class GameController {
             questionLabel.setText("Felicitări! Ați câștigat " + player.getGuaranteedAmount() + " lei");
             questionLabel.setTextFill(Color.GREEN);
         } else {
-            questionLabel.setText("Ne pare rău! Ați dat un răspuns greșit. \n " +
+            questionLabel.setText("Ne pare rău, că de data aceasta\n nu ați răspuns la toate întrebările.\n\n" +
                     "În aceasta joacă ați câștigat " + player.getGuaranteedAmount() + " lei");
             questionLabel.setTextFill(Color.RED);
         }

@@ -10,96 +10,131 @@
 <?import javafx.scene.text.Font?>
 
 <?import javafx.scene.control.TextArea?>
-<BorderPane prefHeight="416.0" prefWidth="657.0"
+<BorderPane prefHeight="420.0" prefWidth="700.0"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="edu.tekwill.millionaire.controler.GameController">
-   <top>
-      <HBox alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="660.0" spacing="30.0" BorderPane.alignment="CENTER">
-         <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="100.0" spacing="15.0">
-               <children>
-                  <VBox>
-                     <children>
-                        <HBox spacing="10.0">
-                           <children>
-                              <Label text="Level " />
-                              <Label fx:id="levelNumber" text="Label2" textAlignment="CENTER" />
-                           </children>
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="660.0" spacing="25.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="100.0" spacing="15.0">
+                    <children>
+                        <VBox>
+                            <children>
+                                <HBox spacing="20.0">
+                                    <children>
+                                        <Label text="Întrebarea №">
+                                            <font>
+                                                <Font name="System Bold" size="12.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="levelNumber" text="Label2" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="System Bold" size="12.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                            </children>
+                            <padding>
+                                <Insets left="10.0"/>
+                            </padding>
+                        </VBox>
+                    </children>
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                </VBox>
+                <Button fx:id="helpFiftyFifty" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0"
+                        text="50 / 50" focusTraversable="false" onAction="#getHelpFiftyFifty"/>
+                <Button fx:id="helpFriend" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0"
+                        text="Sună un prieten" focusTraversable="false" onAction="#getHelpPhone"/>
+                <Button fx:id="helpAudience" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0"
+                        text="Întreabă auditoria" focusTraversable="false" onAction="#getHelpAudience"/>
+                <ImageView fitHeight="79.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true"/>
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="CENTER" prefHeight="391.0" prefWidth="500.0" spacing="25.0">
+                    <children>
+                        <Label fx:id="questionLabel" alignment="TOP_CENTER" prefHeight="151.0" prefWidth="500.0"
+                               text="question" textAlignment="CENTER" wrapText="true" textFill="#2c0a83">
+                            <font>
+                                <Font size="25.0"/>
+                            </font>
+                        </Label>
+                        <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="500.0" spacing="100.0">
+                            <children>
+                                <Button fx:id="answer1" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0"
+                                        mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0"
+                                        focusTraversable="false" onAction="#checkAnswer1">
+                                    <opaqueInsets>
+                                        <Insets/>
+                                    </opaqueInsets>
+                                </Button>
+                                <Button fx:id="answer2" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0"
+                                        mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0"
+                                        focusTraversable="false" onAction="#checkAnswer2"/>
+                            </children>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <padding>
+                                <Insets left="20.0"/>
+                            </padding>
                         </HBox>
-                     </children>
-                     <padding>
-                        <Insets left="10.0" />
-                     </padding>
-                  </VBox>
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </VBox>
-            <Button fx:id="helpFiftyFifty" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="50 / 50" focusTraversable="false" onAction="#getHelpFiftyFifty"/>
-            <Button fx:id="helpFriend" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Ajutor prietenului" focusTraversable="false" onAction="#getHelpPhone"/>
-            <Button fx:id="helpAudience" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Ajutor auditoria" focusTraversable="false" onAction="#getHelpAudience"/>
-            <ImageView fitHeight="79.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </HBox>
-   </top>
-   <center>
-      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
-         <children>
-            <VBox alignment="CENTER" prefHeight="391.0" prefWidth="500.0" spacing="25.0">
-               <children>
-                  <Label fx:id="questionLabel" alignment="TOP_CENTER" prefHeight="151.0" prefWidth="500.0" text="question" textAlignment="CENTER" wrapText="true" textFill="#2c0a83">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-                  <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="500.0" spacing="100.0">
-                     <children>
-                        <Button fx:id="answer1" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" focusTraversable="false" onAction="#checkAnswer1">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </Button>
-                        <Button fx:id="answer2" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" focusTraversable="false" onAction="#checkAnswer2"/>
-                     </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <padding>
-                        <Insets left="20.0" />
-                     </padding>
-                  </HBox>
-                  <HBox prefHeight="40.0" prefWidth="500.0" spacing="100.0">
-                     <children>
-                        <Button fx:id="answer3" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" focusTraversable="false" onAction="#checkAnswer3">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </Button>
-                        <Button fx:id="answer4" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" focusTraversable="false" onAction="#checkAnswer4" />
-                     </children>
-                     <padding>
-                        <Insets left="20.0" />
-                     </padding>
-                  </HBox>
-               </children>
-            </VBox>
-         </children>
-      </HBox>
-   </center>
-   <right>
-      <VBox spacing="25.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label fx:id="playerName" prefHeight="27.0" prefWidth="147.0" text="Player name" />
-            <HBox spacing="10.0">
-               <children>
-                  <Label text="Score" />
-                  <Label fx:id="playerScore" text="Label" textAlignment="CENTER" />
-               </children>
-            </HBox>
-            <TextArea fx:id="playerRecords" prefHeight="401.0" prefWidth="149.0" editable="false" />
-         </children>
-      </VBox>
-   </right>
+                        <HBox prefHeight="40.0" prefWidth="500.0" spacing="100.0">
+                            <children>
+                                <Button fx:id="answer3" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0"
+                                        mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0"
+                                        focusTraversable="false" onAction="#checkAnswer3">
+                                    <opaqueInsets>
+                                        <Insets/>
+                                    </opaqueInsets>
+                                </Button>
+                                <Button fx:id="answer4" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="40.0"
+                                        mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0"
+                                        focusTraversable="false" onAction="#checkAnswer4"/>
+                            </children>
+                            <padding>
+                                <Insets left="20.0"/>
+                            </padding>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </center>
+    <right>
+        <VBox spacing="25.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="playerName" prefHeight="27.0" prefWidth="147.0" text="Player name">
+                    <font>
+                        <Font name="System Bold" size="16.0"/>
+                    </font>
+                </Label>
+                <HBox spacing="10.0">
+                    <children>
+                        <Label text="Score">
+                            <font>
+                                <Font name="System Bold" size="14.0"/>
+                            </font>
+                        </Label>
+
+                        <Label fx:id="playerScore" text="Label" textAlignment="CENTER">
+                            <font>
+                                <Font name=" System Bold" size="14.0"/>
+                            </font>
+                        </Label>
+
+                    </children>
+                </HBox>
+
+                <TextArea fx:id="playerRecords" prefHeight="401.0" prefWidth="149.0" editable="false"/>
+            </children>
+        </VBox>
+    </right>
 </BorderPane>
